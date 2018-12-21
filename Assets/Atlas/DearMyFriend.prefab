@@ -1,0 +1,761 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1924752065190494}
+  m_IsPrefabAsset: 1
+--- !u!1 &1924752065190494
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4349519214395296}
+  - component: {fileID: 114205142536635326}
+  m_Layer: 0
+  m_Name: DearMyFriend
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4349519214395296
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1924752065190494}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114205142536635326
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1924752065190494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: 4fe639bea7efcc5468f2c1c1f3a463af, type: 2}
+  mSprites:
+  - name: arrow
+    x: 1894
+    y: 796
+    width: 81
+    height: 108
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 2
+    paddingTop: 2
+    paddingBottom: 2
+  - name: buy
+    x: 1721
+    y: 335
+    width: 154
+    height: 46
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 2
+    paddingTop: 2
+    paddingBottom: 2
+  - name: cal
+    x: 1538
+    y: 458
+    width: 121
+    height: 126
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 2
+    paddingTop: 2
+    paddingBottom: 2
+  - name: char
+    x: 3909
+    y: 47
+    width: 109
+    height: 235
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 2
+    paddingTop: 2
+    paddingBottom: 2
+  - name: charAnger
+    x: 3275
+    y: 283
+    width: 366
+    height: 953
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 315
+    paddingRight: 319
+    paddingTop: 47
+    paddingBottom: 0
+  - name: charAnger(OutDoor)
+    x: 1234
+    y: 905
+    width: 376
+    height: 952
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 292
+    paddingRight: 332
+    paddingTop: 48
+    paddingBottom: 0
+  - name: charAnger1
+    x: 3642
+    y: 1237
+    width: 366
+    height: 953
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 315
+    paddingRight: 319
+    paddingTop: 47
+    paddingBottom: 0
+  - name: charAnger1(OutDoor)
+    x: 1611
+    y: 905
+    width: 376
+    height: 952
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 292
+    paddingRight: 332
+    paddingTop: 48
+    paddingBottom: 0
+  - name: charDefault
+    x: 3275
+    y: 1237
+    width: 366
+    height: 953
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 315
+    paddingRight: 319
+    paddingTop: 47
+    paddingBottom: 0
+  - name: charDefault(OutDoor)
+    x: 857
+    y: 905
+    width: 376
+    height: 952
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 292
+    paddingRight: 332
+    paddingTop: 48
+    paddingBottom: 0
+  - name: charDefault1
+    x: 2722
+    y: 277
+    width: 366
+    height: 953
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 315
+    paddingRight: 319
+    paddingTop: 47
+    paddingBottom: 0
+  - name: charEnd
+    x: 3173
+    y: 3144
+    width: 369
+    height: 952
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 291
+    paddingRight: 340
+    paddingTop: 48
+    paddingBottom: 0
+  - name: charEndShysmile
+    x: 3645
+    y: 2191
+    width: 369
+    height: 952
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 291
+    paddingRight: 340
+    paddingTop: 48
+    paddingBottom: 0
+  - name: charEndSmile
+    x: 3275
+    y: 2191
+    width: 369
+    height: 952
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 291
+    paddingRight: 340
+    paddingTop: 48
+    paddingBottom: 0
+  - name: charSad
+    x: 1988
+    y: 277
+    width: 366
+    height: 953
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 315
+    paddingRight: 319
+    paddingTop: 47
+    paddingBottom: 0
+  - name: charSad(OutDoor)
+    x: 377
+    y: 323
+    width: 376
+    height: 952
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 292
+    paddingRight: 332
+    paddingTop: 48
+    paddingBottom: 0
+  - name: charShy
+    x: 2355
+    y: 277
+    width: 366
+    height: 953
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 315
+    paddingRight: 319
+    paddingTop: 47
+    paddingBottom: 0
+  - name: charShy(OutDoor)
+    x: 0
+    y: 323
+    width: 376
+    height: 952
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 292
+    paddingRight: 332
+    paddingTop: 48
+    paddingBottom: 0
+  - name: charSmile
+    x: 3642
+    y: 283
+    width: 366
+    height: 953
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 315
+    paddingRight: 319
+    paddingTop: 47
+    paddingBottom: 0
+  - name: charSmile(OutDoor)
+    x: 3543
+    y: 3144
+    width: 376
+    height: 952
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 292
+    paddingRight: 332
+    paddingTop: 48
+    paddingBottom: 0
+  - name: choose
+    x: 1489
+    y: 325
+    width: 154
+    height: 46
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 2
+    paddingTop: 2
+    paddingBottom: 2
+  - name: choosebox
+    x: 292
+    y: 30
+    width: 282
+    height: 58
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 2
+    paddingTop: 2
+    paddingBottom: 2
+  - name: flower
+    x: 0
+    y: 1858
+    width: 2048
+    height: 734
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: giftshop
+    x: 1814
+    y: 552
+    width: 148
+    height: 144
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 20
+    paddingBottom: 0
+  - name: giftshopBox
+    x: 0
+    y: 1276
+    width: 856
+    height: 581
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 12
+    paddingRight: 12
+    paddingTop: 1
+    paddingBottom: 12
+  - name: giftshopBoxClose
+    x: 1360
+    y: 340
+    width: 119
+    height: 121
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 12
+    paddingRight: 8
+    paddingTop: 12
+    paddingBottom: 6
+  - name: giftshopBoxItembox
+    x: 1313
+    y: 585
+    width: 500
+    height: 111
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hart
+    x: 1894
+    y: 725
+    width: 68
+    height: 70
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 2
+    paddingTop: 0
+    paddingBottom: 2
+  - name: hart1
+    x: 1480
+    y: 415
+    width: 243
+    height: 42
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hart2
+    x: 1480
+    y: 372
+    width: 240
+    height: 42
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hartblue
+    x: 1721
+    y: 382
+    width: 238
+    height: 32
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hartpink
+    x: 1724
+    y: 453
+    width: 235
+    height: 32
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: logo
+    x: 754
+    y: 581
+    width: 558
+    height: 323
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 127
+    paddingRight: 199
+    paddingTop: 126
+    paddingBottom: 121
+  - name: money
+    x: 754
+    y: 332
+    width: 261
+    height: 84
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 7
+    paddingTop: 2
+    paddingBottom: 2
+  - name: moneyplus
+    x: 1016
+    y: 340
+    width: 39
+    height: 40
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 7
+    paddingRight: 7
+    paddingTop: 7
+    paddingBottom: 7
+  - name: namingBox
+    x: 1064
+    y: 48
+    width: 473
+    height: 62
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 1
+    paddingRight: 5
+    paddingTop: 0
+    paddingBottom: 5
+  - name: notes
+    x: 1360
+    y: 247
+    width: 128
+    height: 92
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 18
+    paddingBottom: 18
+  - name: outdoor
+    x: 754
+    y: 417
+    width: 148
+    height: 163
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 1
+    paddingBottom: 0
+  - name: parttime
+    x: 903
+    y: 423
+    width: 148
+    height: 157
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 7
+    paddingBottom: 0
+  - name: photo
+    x: 1064
+    y: 111
+    width: 295
+    height: 469
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: present
+    x: 575
+    y: 23
+    width: 227
+    height: 65
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 2
+    paddingTop: 2
+    paddingBottom: 1
+  - name: presentBoxClose
+    x: 1360
+    y: 462
+    width: 119
+    height: 122
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 12
+    paddingRight: 8
+    paddingTop: 12
+    paddingBottom: 5
+  - name: sleep
+    x: 803
+    y: 23
+    width: 227
+    height: 65
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 2
+    paddingTop: 2
+    paddingBottom: 1
+  - name: system
+    x: 0
+    y: 3023
+    width: 2002
+    height: 1073
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 23
+    paddingRight: 23
+    paddingTop: 27
+    paddingBottom: 18
+  - name: system2
+    x: 2049
+    y: 1231
+    width: 1225
+    height: 680
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 28
+    paddingRight: 27
+    paddingTop: 20
+    paddingBottom: 20
+  - name: system3
+    x: 2049
+    y: 1912
+    width: 1225
+    height: 680
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 29
+    paddingRight: 26
+    paddingTop: 16
+    paddingBottom: 24
+  - name: system4
+    x: 2003
+    y: 2593
+    width: 1169
+    height: 1503
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: systembtn
+    x: 1313
+    y: 697
+    width: 580
+    height: 207
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 12
+    paddingRight: 12
+    paddingTop: 12
+    paddingBottom: 12
+  - name: talk
+    x: 1660
+    y: 486
+    width: 227
+    height: 65
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 2
+    paddingTop: 1
+    paddingBottom: 2
+  - name: textbox
+    x: 3089
+    y: 102
+    width: 819
+    height: 180
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 2
+    paddingTop: 6
+    paddingBottom: 2
+  - name: textbox2
+    x: 0
+    y: 89
+    width: 1063
+    height: 233
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 2
+    paddingTop: 6
+    paddingBottom: 2
+  - name: Warning
+    x: 292
+    y: 10
+    width: 221
+    height: 19
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: WhatsYour
+    x: 0
+    y: 21
+    width: 291
+    height: 67
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: wheel
+    x: 1016
+    y: 381
+    width: 41
+    height: 41
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  mPixelSize: 1
+  mReplacement: {fileID: 0}
+  mCoordinates: 0
+  sprites: []

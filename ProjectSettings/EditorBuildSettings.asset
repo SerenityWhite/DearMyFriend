@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Intro.unity
+    guid: 1aebdfd812d46ef46a6e30ed6cc45e48
+  - enabled: 1
+    path: Assets/Scenes/Start.unity
+    guid: db0d4664786e51440a9893df0f864ab2
+  - enabled: 1
+    path: Assets/Scenes/Main.unity
+    guid: b8d6a0efccceada46b94faa3b4467d2f
+  - enabled: 1
+    path: Assets/Scenes/OutDoor.unity
+    guid: e917b453931c20e46b0129f2950e0d5e
+  - enabled: 1
+    path: Assets/Scenes/PartTime.unity
+    guid: ecc7e9e53a51dd141ac328187fbb1b2c
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: d555afde0c1344c4980c235df365365d
+  - enabled: 1
+    path: Assets/Scenes/hikikomori.unity
+    guid: 0c4d99cfacf158a43ade9c9bf8ceab2d
+  m_configObjects: {}
