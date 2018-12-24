@@ -37,6 +37,9 @@ public class OutDoorSC : MonoBehaviour
     {
         if (PlayerState.Instance().outdoorNum == 0)
         {
+            BGMSC.Instance().BGMSource.clip = BGMSC.Instance().Park;
+            BGMSC.Instance().BGMSource.Play();
+
             park.SetActive(true);
             talk.SetActive(true);
 
@@ -60,6 +63,9 @@ public class OutDoorSC : MonoBehaviour
         }
         if (PlayerState.Instance().outdoorNum == 1)
         {
+            BGMSC.Instance().BGMSource.clip = BGMSC.Instance().Shop;
+            BGMSC.Instance().BGMSource.Play();
+
             shop.SetActive(true);
             talk.SetActive(true);
 
@@ -83,13 +89,20 @@ public class OutDoorSC : MonoBehaviour
         }
         if (PlayerState.Instance().outdoorNum == 2)
         {
+            BGMSC.Instance().BGMSource.clip = BGMSC.Instance().School;
+            BGMSC.Instance().BGMSource.Play();
+
             school.SetActive(true);
             talk.SetActive(true);
 
             if (PlayerState.Instance().hartLevel == 3)
             {
                 if (firstBool[2] == 0)
+                {
+                    BGMSC.Instance().BGMSource.clip = BGMSC.Instance().SchoolFirst;
+                    BGMSC.Instance().BGMSource.Play();
                     ShopStory();
+                }
 
                 if (firstBool[2] == 1)
                     ShopStory();
@@ -108,6 +121,9 @@ public class OutDoorSC : MonoBehaviour
         }
         if (PlayerState.Instance().outdoorNum == 3)
         {
+            BGMSC.Instance().BGMSource.clip = BGMSC.Instance().Street;
+            BGMSC.Instance().BGMSource.Play();
+
             street.SetActive(true);
             talk.SetActive(true);
 
@@ -148,30 +164,44 @@ public class OutDoorSC : MonoBehaviour
 
     public void OptionOn()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         option.SetActive(true);
         exit.SetActive(false);
     }
     public void OptionOff()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
+        PlayerPrefs.SetFloat("BGMVolume", OptionPrograss.Instance().BGM.volume);
+        PlayerPrefs.SetFloat("SOUNDVolume", OptionPrograss.Instance().FullSound.volume);
         option.SetActive(false);
     }
 
     public void EXITOn()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         exit.SetActive(true);
         option.SetActive(false);
     }
     public void EXITyes()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         Application.Quit();
     }
     public void EXITno()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         exit.SetActive(false);
     }
 
     public void WarningOK()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         Warning.SetActive(false);
     }
 
@@ -182,6 +212,9 @@ public class OutDoorSC : MonoBehaviour
     }
     public void NextStory()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
+
         if (storyFinish == true && StoryChoose == false)
         {
             StorySubNum += 1;
@@ -207,18 +240,24 @@ public class OutDoorSC : MonoBehaviour
 
     public void StoryChooseClick1()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         chooseNum = 1;
         ChooseStory();
         storyEF.ResetToBeginning();
     }
     public void StoryChooseClick2()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         chooseNum = 2;
         ChooseStory();
         storyEF.ResetToBeginning();
     }
     public void StoryChooseClick3()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         chooseNum = 3;
         ChooseStory();
         storyEF.ResetToBeginning();
@@ -226,6 +265,8 @@ public class OutDoorSC : MonoBehaviour
 
     public void OutDoorComple()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         StorySubNum = 0;
         systemMassage.SetActive(false);
         SceneManager.LoadScene(2);
@@ -537,7 +578,6 @@ public class OutDoorSC : MonoBehaviour
             }
         }
     }
-
     void ShopStory()
     {
         if (PlayerState.Instance().hartLevel == 3)
@@ -873,7 +913,6 @@ public class OutDoorSC : MonoBehaviour
             }
         }
     }
-
     void SchoolStory()
     {
         if (PlayerState.Instance().hartLevel == 3)
@@ -1203,7 +1242,6 @@ public class OutDoorSC : MonoBehaviour
             }
         }
     }
-
     void StreetStory()
     {
         if (PlayerState.Instance().hartLevel == 3)

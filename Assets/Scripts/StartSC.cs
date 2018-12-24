@@ -50,6 +50,8 @@ public class StartSC : MonoBehaviour
     {
         if(storyFinish == true && StoryChoose == false)
         {
+            SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+            SoundSC.Instance().Sound.Play();
             StoryNum += 1;
             storyFinish = false;
             Story();
@@ -120,7 +122,8 @@ public class StartSC : MonoBehaviour
 
         if (StoryNum == 8)
         {
-            //문 두드리는 효과음
+            SoundSC.Instance().Sound.clip = SoundSC.Instance().Door1;
+            SoundSC.Instance().Sound.Play();
             nameTX.text = PlayerPrefs.GetString("UserName");
             storyTX.text = "나리야, 안녕? 학교 부담임선생님이야. 잠깐만 대화할 수 있을까?";
         }
@@ -152,7 +155,8 @@ public class StartSC : MonoBehaviour
 
         if (StoryNum == 11)
         {
-            //문 두드리는 효과음
+            SoundSC.Instance().Sound.clip = SoundSC.Instance().Door1;
+            SoundSC.Instance().Sound.Play();
             nameTX.text = PlayerPrefs.GetString("UserName");
             storyTX.text = "나리야, 안녕? 어제 왔던 부담임선생님이야. \n잠깐만이라도 괜찮으니까 얘기하지 않을래?";
         }
@@ -227,7 +231,8 @@ public class StartSC : MonoBehaviour
 
         if (StoryNum == 22)
         {
-            //철컥하고 문 열리는 소리
+            SoundSC.Instance().Sound.clip = SoundSC.Instance().DoorOpen;
+            SoundSC.Instance().Sound.Play();
             nameTX.text = PlayerPrefs.GetString("UserName");
             storyTX.text = "(방문한지 4일째 되던 날, 나리는 굳게 닫혀있던 문을 열어주었다.)";
         }
@@ -265,21 +270,19 @@ public class StartSC : MonoBehaviour
                 chooseBox[0].SetActive(false);
                 chooseBox[1].SetActive(false);
                 chooseBox[2].SetActive(false);
-                //여러 번 문 두드리는 효과음
+                SoundSC.Instance().Sound.clip = SoundSC.Instance().Door2;
+                SoundSC.Instance().Sound.Play();
                 nameTX.text = PlayerPrefs.GetString("UserName");
                 storyTX.text = "나리야! 잠깐만 선생님이랑 얘기하자, 응? \n(문을 더욱 세게 두드려봤지만 여전히 반응이 없다. 그냥 내일 다시 오는 게 좋겠다.";
                 StoryChoose = false;
-            }
-
-            if (chooseNum == 3)
-            {
-                //선택지3
             }
         }
     }
 
     public void StoryChooseClick1()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         chooseNum = 1;
         ChooseStory();
         storyEF.ResetToBeginning();
@@ -287,6 +290,8 @@ public class StartSC : MonoBehaviour
 
     public void StoryChooseClick2()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         chooseNum = 2;
         ChooseStory();
         storyEF.ResetToBeginning();
@@ -294,6 +299,8 @@ public class StartSC : MonoBehaviour
 
     public void StoryChooseClick3()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         chooseNum = 3;
         ChooseStory();
         storyEF.ResetToBeginning();
@@ -301,11 +308,15 @@ public class StartSC : MonoBehaviour
 
     public void ExitNo()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         Exit.SetActive(false);
     }
 
     public void ExitYes()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         Exit.SetActive(true);
     }
 }

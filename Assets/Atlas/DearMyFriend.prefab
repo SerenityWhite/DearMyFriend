@@ -54,8 +54,8 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 4fe639bea7efcc5468f2c1c1f3a463af, type: 2}
   mSprites:
   - name: arrow
-    x: 1894
-    y: 796
+    x: 1118
+    y: 114
     width: 81
     height: 108
     borderLeft: 0
@@ -67,8 +67,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: buy
-    x: 1721
-    y: 335
+    x: 1851
+    y: 1647
     width: 154
     height: 46
     borderLeft: 0
@@ -80,8 +80,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: cal
-    x: 1538
-    y: 458
+    x: 1064
+    y: 2896
     width: 121
     height: 126
     borderLeft: 0
@@ -93,8 +93,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: char
-    x: 3909
-    y: 47
+    x: 2379
+    y: 450
     width: 109
     height: 235
     borderLeft: 0
@@ -106,8 +106,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: charAnger
-    x: 3275
-    y: 283
+    x: 3550
+    y: 3143
     width: 366
     height: 953
     borderLeft: 0
@@ -119,8 +119,8 @@ MonoBehaviour:
     paddingTop: 47
     paddingBottom: 0
   - name: charAnger(OutDoor)
-    x: 1234
-    y: 905
+    x: 3540
+    y: 1237
     width: 376
     height: 952
     borderLeft: 0
@@ -132,8 +132,8 @@ MonoBehaviour:
     paddingTop: 48
     paddingBottom: 0
   - name: charAnger1
-    x: 3642
-    y: 1237
+    x: 370
+    y: 904
     width: 366
     height: 953
     borderLeft: 0
@@ -145,8 +145,8 @@ MonoBehaviour:
     paddingTop: 47
     paddingBottom: 0
   - name: charAnger1(OutDoor)
-    x: 1611
-    y: 905
+    x: 3540
+    y: 2190
     width: 376
     height: 952
     borderLeft: 0
@@ -158,8 +158,8 @@ MonoBehaviour:
     paddingTop: 48
     paddingBottom: 0
   - name: charDefault
-    x: 3275
-    y: 1237
+    x: 2796
+    y: 1639
     width: 366
     height: 953
     borderLeft: 0
@@ -171,8 +171,8 @@ MonoBehaviour:
     paddingTop: 47
     paddingBottom: 0
   - name: charDefault(OutDoor)
-    x: 857
-    y: 905
+    x: 3173
+    y: 3144
     width: 376
     height: 952
     borderLeft: 0
@@ -184,8 +184,8 @@ MonoBehaviour:
     paddingTop: 48
     paddingBottom: 0
   - name: charDefault1
-    x: 2722
-    y: 277
+    x: 2218
+    y: 686
     width: 366
     height: 953
     borderLeft: 0
@@ -197,8 +197,8 @@ MonoBehaviour:
     paddingTop: 47
     paddingBottom: 0
   - name: charEnd
-    x: 3173
-    y: 3144
+    x: 2049
+    y: 1640
     width: 369
     height: 952
     borderLeft: 0
@@ -210,8 +210,8 @@ MonoBehaviour:
     paddingTop: 48
     paddingBottom: 0
   - name: charEndShysmile
-    x: 3645
-    y: 2191
+    x: 0
+    y: 905
     width: 369
     height: 952
     borderLeft: 0
@@ -223,8 +223,8 @@ MonoBehaviour:
     paddingTop: 48
     paddingBottom: 0
   - name: charEndSmile
-    x: 3275
-    y: 2191
+    x: 1481
+    y: 905
     width: 369
     height: 952
     borderLeft: 0
@@ -236,8 +236,8 @@ MonoBehaviour:
     paddingTop: 48
     paddingBottom: 0
   - name: charSad
-    x: 1988
-    y: 277
+    x: 3173
+    y: 2190
     width: 366
     height: 953
     borderLeft: 0
@@ -249,8 +249,8 @@ MonoBehaviour:
     paddingTop: 47
     paddingBottom: 0
   - name: charSad(OutDoor)
-    x: 377
-    y: 323
+    x: 2419
+    y: 1640
     width: 376
     height: 952
     borderLeft: 0
@@ -262,8 +262,8 @@ MonoBehaviour:
     paddingTop: 48
     paddingBottom: 0
   - name: charShy
-    x: 2355
-    y: 277
+    x: 737
+    y: 904
     width: 366
     height: 953
     borderLeft: 0
@@ -275,8 +275,8 @@ MonoBehaviour:
     paddingTop: 47
     paddingBottom: 0
   - name: charShy(OutDoor)
-    x: 0
-    y: 323
+    x: 1104
+    y: 905
     width: 376
     height: 952
     borderLeft: 0
@@ -288,8 +288,8 @@ MonoBehaviour:
     paddingTop: 48
     paddingBottom: 0
   - name: charSmile
-    x: 3642
-    y: 283
+    x: 1851
+    y: 686
     width: 366
     height: 953
     borderLeft: 0
@@ -301,8 +301,8 @@ MonoBehaviour:
     paddingTop: 47
     paddingBottom: 0
   - name: charSmile(OutDoor)
-    x: 3543
-    y: 3144
+    x: 3163
+    y: 1237
     width: 376
     height: 952
     borderLeft: 0
@@ -314,8 +314,8 @@ MonoBehaviour:
     paddingTop: 48
     paddingBottom: 0
   - name: choose
-    x: 1489
-    y: 325
+    x: 1186
+    y: 2976
     width: 154
     height: 46
     borderLeft: 0
@@ -327,8 +327,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: choosebox
-    x: 292
-    y: 30
+    x: 0
+    y: 2618
     width: 282
     height: 58
     borderLeft: 0
@@ -353,8 +353,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: giftshop
-    x: 1814
-    y: 552
+    x: 969
+    y: 78
     width: 148
     height: 144
     borderLeft: 0
@@ -366,8 +366,8 @@ MonoBehaviour:
     paddingTop: 20
     paddingBottom: 0
   - name: giftshopBox
-    x: 0
-    y: 1276
+    x: 1226
+    y: 104
     width: 856
     height: 581
     borderLeft: 0
@@ -379,8 +379,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 12
   - name: giftshopBoxClose
-    x: 1360
-    y: 340
+    x: 913
+    y: 2667
     width: 119
     height: 121
     borderLeft: 0
@@ -392,8 +392,8 @@ MonoBehaviour:
     paddingTop: 12
     paddingBottom: 6
   - name: giftshopBoxItembox
-    x: 1313
-    y: 585
+    x: 0
+    y: 2677
     width: 500
     height: 111
     borderLeft: 0
@@ -405,8 +405,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: hart
-    x: 1894
-    y: 725
+    x: 3059
+    y: 1244
     width: 68
     height: 70
     borderLeft: 0
@@ -418,8 +418,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 2
   - name: hart1
-    x: 1480
-    y: 415
+    x: 283
+    y: 2593
     width: 243
     height: 42
     borderLeft: 0
@@ -431,8 +431,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: hart2
-    x: 1480
-    y: 372
+    x: 527
+    y: 2593
     width: 240
     height: 42
     borderLeft: 0
@@ -444,8 +444,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: hartblue
-    x: 1721
-    y: 382
+    x: 1141
+    y: 2597
     width: 238
     height: 32
     borderLeft: 0
@@ -457,8 +457,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: hartpink
-    x: 1724
-    y: 453
+    x: 1064
+    y: 2797
     width: 235
     height: 32
     borderLeft: 0
@@ -470,8 +470,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: logo
-    x: 754
-    y: 581
+    x: 2585
+    y: 1315
     width: 558
     height: 323
     borderLeft: 0
@@ -483,8 +483,8 @@ MonoBehaviour:
     paddingTop: 126
     paddingBottom: 121
   - name: money
-    x: 754
-    y: 332
+    x: 501
+    y: 2704
     width: 261
     height: 84
     borderLeft: 0
@@ -496,8 +496,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: moneyplus
-    x: 1016
-    y: 340
+    x: 768
+    y: 2595
     width: 39
     height: 40
     borderLeft: 0
@@ -509,8 +509,8 @@ MonoBehaviour:
     paddingTop: 7
     paddingBottom: 7
   - name: namingBox
-    x: 1064
-    y: 48
+    x: 2585
+    y: 1252
     width: 473
     height: 62
     borderLeft: 0
@@ -522,8 +522,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 5
   - name: notes
-    x: 1360
-    y: 247
+    x: 1033
+    y: 2696
     width: 128
     height: 92
     borderLeft: 0
@@ -535,8 +535,8 @@ MonoBehaviour:
     paddingTop: 18
     paddingBottom: 18
   - name: outdoor
-    x: 754
-    y: 417
+    x: 1851
+    y: 1694
     width: 148
     height: 163
     borderLeft: 0
@@ -548,8 +548,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: parttime
-    x: 903
-    y: 423
+    x: 820
+    y: 65
     width: 148
     height: 157
     borderLeft: 0
@@ -561,8 +561,8 @@ MonoBehaviour:
     paddingTop: 7
     paddingBottom: 0
   - name: photo
-    x: 1064
-    y: 111
+    x: 2083
+    y: 216
     width: 295
     height: 469
     borderLeft: 0
@@ -574,8 +574,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: present
-    x: 575
-    y: 23
+    x: 1064
+    y: 2830
     width: 227
     height: 65
     borderLeft: 0
@@ -587,8 +587,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 1
   - name: presentBoxClose
-    x: 1360
-    y: 462
+    x: 793
+    y: 2666
     width: 119
     height: 122
     borderLeft: 0
@@ -600,8 +600,8 @@ MonoBehaviour:
     paddingTop: 12
     paddingBottom: 5
   - name: sleep
-    x: 803
-    y: 23
+    x: 1141
+    y: 2630
     width: 227
     height: 65
     borderLeft: 0
@@ -626,8 +626,8 @@ MonoBehaviour:
     paddingTop: 27
     paddingBottom: 18
   - name: system2
-    x: 2049
-    y: 1231
+    x: 0
+    y: 223
     width: 1225
     height: 680
     borderLeft: 0
@@ -639,8 +639,8 @@ MonoBehaviour:
     paddingTop: 20
     paddingBottom: 20
   - name: system3
-    x: 2049
-    y: 1912
+    x: 2585
+    y: 556
     width: 1225
     height: 680
     borderLeft: 0
@@ -665,7 +665,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: systembtn
-    x: 1313
+    x: 1226
     y: 697
     width: 580
     height: 207
@@ -678,8 +678,8 @@ MonoBehaviour:
     paddingTop: 12
     paddingBottom: 12
   - name: talk
-    x: 1660
-    y: 486
+    x: 913
+    y: 2601
     width: 227
     height: 65
     borderLeft: 0
@@ -691,8 +691,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 2
   - name: textbox
-    x: 3089
-    y: 102
+    x: 0
+    y: 42
     width: 819
     height: 180
     borderLeft: 0
@@ -705,7 +705,7 @@ MonoBehaviour:
     paddingBottom: 2
   - name: textbox2
     x: 0
-    y: 89
+    y: 2789
     width: 1063
     height: 233
     borderLeft: 0
@@ -717,8 +717,8 @@ MonoBehaviour:
     paddingTop: 6
     paddingBottom: 2
   - name: Warning
-    x: 292
-    y: 10
+    x: 0
+    y: 2598
     width: 221
     height: 19
     borderLeft: 0
@@ -730,8 +730,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: WhatsYour
-    x: 0
-    y: 21
+    x: 501
+    y: 2636
     width: 291
     height: 67
     borderLeft: 0
@@ -743,8 +743,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: wheel
-    x: 1016
-    y: 381
+    x: 808
+    y: 2624
     width: 41
     height: 41
     borderLeft: 0

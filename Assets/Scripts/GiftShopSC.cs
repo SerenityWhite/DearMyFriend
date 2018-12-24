@@ -34,30 +34,40 @@ public class GiftShopSC : MonoBehaviour
 
     public void Cosmetic1() //블러셔
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         buyChoose.SetActive(true);
         cosmeItemNum = 1;
         BuyChooseTX.text = "[" + Cosmeitem[0].text + "]을 \n정말로 구매하시겠습니까?";
     }
     public void Food1() //코코아&크루아상
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         buyChoose.SetActive(true);
         foodItemNum = 1;
         BuyChooseTX.text = "[" + Fooditem[0].text + "]을 \n정말로 구매하시겠습니까?";
     }
     public void Food2() //생일케이크
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         buyChoose.SetActive(true);
         foodItemNum = 2;
         BuyChooseTX.text = "[" + Fooditem[1].text + "]을 \n정말로 구매하시겠습니까?";
     }
     public void Life1() //이어폰
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         buyChoose.SetActive(true);
         lifeItemNum = 1;
         BuyChooseTX.text = "[" + Lifeitem[0].text + "]을 \n정말로 구매하시겠습니까?";
     }
     public void Life2() //최신가요 음반
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         buyChoose.SetActive(true);
         lifeItemNum = 2;
         BuyChooseTX.text = "[" + Lifeitem[1].text + "]을 \n정말로 구매하시겠습니까?";
@@ -65,6 +75,8 @@ public class GiftShopSC : MonoBehaviour
 
     public void BuyOK()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         buyChoose.SetActive(false);
         buyComple.SetActive(true);
         if (cosmeItemNum == 1)
@@ -146,11 +158,15 @@ public class GiftShopSC : MonoBehaviour
 
     public void BuyNo()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         buyChoose.SetActive(false);
     }
 
     public void BuyCompleOK()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         buyComple.SetActive(false);
         cosmeItemNum = 0;
         foodItemNum = 0;

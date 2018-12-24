@@ -26,6 +26,9 @@ public class PartTimeSC : MonoBehaviour
 
     void Start ()
     {
+        BGMSC.Instance().BGMSource.clip = BGMSC.Instance().partTime;
+        BGMSC.Instance().BGMSource.Play();
+
         partTimeStart = PlayerPrefs.GetString("partTimeStart");
         partTimeEnd = PlayerPrefs.GetString("partTimeEnd");
         partTimeNum = PlayerPrefs.GetInt("partTimeNum");
@@ -66,6 +69,8 @@ public class PartTimeSC : MonoBehaviour
 
     public void Time1Clock()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         partTimeNum = 1;
         PlayerPrefs.SetInt("partTimeNum", partTimeNum);
         systemMassage.SetActive(true);
@@ -74,6 +79,8 @@ public class PartTimeSC : MonoBehaviour
 
     public void Time3Clock()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         partTimeNum = 3;
         PlayerPrefs.SetInt("partTimeNum", partTimeNum);
         systemMassage.SetActive(true);
@@ -82,6 +89,8 @@ public class PartTimeSC : MonoBehaviour
 
     public void Time5Clock()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         partTimeNum = 5;
         PlayerPrefs.SetInt("partTimeNum", partTimeNum);
         systemMassage.SetActive(true);
@@ -90,6 +99,8 @@ public class PartTimeSC : MonoBehaviour
 
     public void Time8Clock()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         partTimeNum = 8;
         PlayerPrefs.SetInt("partTimeNum", partTimeNum);
         systemMassage.SetActive(true);
@@ -98,6 +109,8 @@ public class PartTimeSC : MonoBehaviour
 
     public void SystemMassageYes()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         systemMassage.SetActive(false);
         sceneBack.SetActive(false);
         TimeSelec.SetActive(false);
@@ -117,12 +130,17 @@ public class PartTimeSC : MonoBehaviour
 
     public void SystemMassageNo()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         systemMassage.SetActive(false);
     }
 
     public void GetMoney()
     {
-        if(partTimeComple == true)
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
+
+        if (partTimeComple == true)
         {
             partTime = 0;
             PlayerPrefs.SetInt("partTime", partTime);
@@ -164,38 +182,54 @@ public class PartTimeSC : MonoBehaviour
 
     public void MassageBoxOff()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         Massage.SetActive(false);
     }
 
     public void Back()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         SceneManager.LoadScene(2);
     }
 
     public void OptionOn()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         option.SetActive(true);
         exit.SetActive(false);
     }
 
     public void OptionOff()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
+        PlayerPrefs.SetFloat("BGMVolume", OptionPrograss.Instance().BGM.volume);
+        PlayerPrefs.SetFloat("SOUNDVolume", OptionPrograss.Instance().FullSound.volume);
         option.SetActive(false);
     }
 
     public void EXITOn()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         exit.SetActive(true);
         option.SetActive(false);
     }
 
     public void EXITyes()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         Application.Quit();
     }
 
     public void EXITno()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         exit.SetActive(false);
     }
 }

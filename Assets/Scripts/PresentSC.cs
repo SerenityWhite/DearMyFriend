@@ -52,6 +52,8 @@ public class PresentSC : MonoBehaviour
 
     public void PresentOK()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         systemMassage.SetActive(false);
         presentOK.SetActive(true);
         if (cosmeItemNum == 1)
@@ -143,11 +145,15 @@ public class PresentSC : MonoBehaviour
 
     public void PresentNo()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         systemMassage.SetActive(false);
     }
 
     public void PresentComple()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         cosmeItemNum = 0;
         foodItemNum = 0;
         lifeItemNum = 0;
@@ -156,30 +162,40 @@ public class PresentSC : MonoBehaviour
 
     public void Cosmetic1() //블러셔
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         systemMassage.SetActive(true);
         cosmeItemNum = 1;
         systemMassageTX.text = "선택하신 [" + CosmeitemTX[0].text + "]을 \n정말로 선물하시겠습니까?";
     }
     public void Food1() //코코아&크루아상
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         systemMassage.SetActive(true);
         foodItemNum = 1;
         systemMassageTX.text = "선택하신 [" + FooditemTX[0].text + "]을 \n정말로 선물하시겠습니까?";
     }
     public void Food2() //생일케이크
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         systemMassage.SetActive(true);
         foodItemNum = 2;
         systemMassageTX.text = "선택하신 [" + FooditemTX[1].text + "]을 \n정말로 선물하시겠습니까?";
     }
     public void Life1() //이어폰
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         systemMassage.SetActive(true);
         lifeItemNum = 1;
         systemMassageTX.text = "선택하신 [" + LifeitemTX[0].text + "]을 \n정말로 선물하시겠습니까?";
     }
     public void Life2() //최신가요 음반
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         systemMassage.SetActive(true);
         lifeItemNum = 2;
         systemMassageTX.text = "선택하신 [" + LifeitemTX[1].text + "]을 \n정말로 선물하시겠습니까?";

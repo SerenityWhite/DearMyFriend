@@ -49,7 +49,7 @@ public class MainSC : MonoBehaviour
     void Start ()
     {
 
-	}
+    }
 	
 	void Update ()
     {
@@ -127,7 +127,10 @@ public class MainSC : MonoBehaviour
 
     public void NextDay()
     {
-        if(PlayerState.Instance().talkChance <= 0)
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
+
+        if (PlayerState.Instance().talkChance <= 0)
         {
             roomNightBG.GetComponent<TweenAlpha>().PlayForward();
             roomNightBG.SetActive(true);
@@ -143,6 +146,8 @@ public class MainSC : MonoBehaviour
     }
     public void NextDayYes()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         roomNightBG.SetActive(false);
         roomNightBG.GetComponent<TweenAlpha>().ResetToBeginning();
         roomBG.SetActive(true);
@@ -157,6 +162,8 @@ public class MainSC : MonoBehaviour
     }
     public void NextDayNo()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         roomNightBG.SetActive(false);
         roomNightBG.GetComponent<TweenAlpha>().ResetToBeginning();
         roomBG.SetActive(true);
@@ -299,6 +306,8 @@ public class MainSC : MonoBehaviour
 
     public void CharaClick()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         guideArrow.SetActive(false);
         PlayerState.Instance().tutorialBool = 0;
         PlayerPrefs.SetInt("tutorialBool", PlayerState.Instance().tutorialBool);
@@ -306,11 +315,15 @@ public class MainSC : MonoBehaviour
     }
     public void CharaOff()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         charaMenu.SetActive(false);
     }
 
     public void PresentOn()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         charaMenu.SetActive(false);
         present.SetActive(true);
         exit.SetActive(false);
@@ -318,11 +331,15 @@ public class MainSC : MonoBehaviour
     }
     public void PresentOff()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         present.SetActive(false);
     }
 
     public void MoneyShopOn()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         moneyShop.SetActive(true);
         giftShop.SetActive(false);
         outdoor.SetActive(false);
@@ -331,11 +348,15 @@ public class MainSC : MonoBehaviour
     }
     public void MoneyShopOff()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         moneyShop.SetActive(false);
     }
 
     public void GiftShopOn()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         giftShop.SetActive(true);
         moneyShop.SetActive(false);
         outdoor.SetActive(false);
@@ -344,12 +365,17 @@ public class MainSC : MonoBehaviour
     }
     public void GiftShopOff()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         giftShop.SetActive(false);
     }
 
     public void OutDoorOn()
     {
-        if(PlayerState.Instance().hartLevel >= 3)
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
+
+        if (PlayerState.Instance().hartLevel >= 3)
         {
             if (PlayerState.Instance().outdoorChance > 0)
             {
@@ -374,40 +400,54 @@ public class MainSC : MonoBehaviour
     }
     public void OutdoorPark()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         PlayerState.Instance().outdoorNum = 0;
         PlayerPrefs.SetInt("OutDoorNum", PlayerState.Instance().outdoorNum);
         SceneManager.LoadScene(3);
     }
     public void OutdoorShop()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         PlayerState.Instance().outdoorNum = 1;
         PlayerPrefs.SetInt("OutDoorNum", PlayerState.Instance().outdoorNum);
         SceneManager.LoadScene(3);
     }
     public void OutdoorSchool()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         PlayerState.Instance().outdoorNum = 2;
         PlayerPrefs.SetInt("OutDoorNum", PlayerState.Instance().outdoorNum);
         SceneManager.LoadScene(3);
     }
     public void OutdoorStreet()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         PlayerState.Instance().outdoorNum = 3;
         PlayerPrefs.SetInt("OutDoorNum", PlayerState.Instance().outdoorNum);
         SceneManager.LoadScene(3);
     }
     public void OutDoorOff()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         outdoor.SetActive(false);
     }
 
     public void PartTimeGo()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         SceneManager.LoadScene(4);
     }
 
     public void OptionOn()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         option.SetActive(true);
         exit.SetActive(false);
         charaMenu.SetActive(false);
@@ -418,11 +458,17 @@ public class MainSC : MonoBehaviour
     }
     public void OptionOff()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
+        PlayerPrefs.SetFloat("BGMVolume", OptionPrograss.Instance().BGM.volume);
+        PlayerPrefs.SetFloat("SOUNDVolume", OptionPrograss.Instance().FullSound.volume);
         option.SetActive(false);
     }
 
     public void EXITOn()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         exit.SetActive(true);
         option.SetActive(false);
         charaMenu.SetActive(false);
@@ -433,20 +479,29 @@ public class MainSC : MonoBehaviour
     }
     public void EXITyes()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         Application.Quit();
     }
     public void EXITno()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         exit.SetActive(false);
     }
 
     public void SystemOK()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         systemMassage.SetActive(false);
     }
 
     public void TalkOn()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
+
         if (PlayerState.Instance().talkChance > 0)
         {
             adPhoto.SetActive(false);
@@ -499,6 +554,9 @@ public class MainSC : MonoBehaviour
     }
     public void NextStory()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
+
         if (storyFinish == true && StoryChoose == false)
         {
             storyFinish = false;
@@ -513,18 +571,24 @@ public class MainSC : MonoBehaviour
 
     public void StoryChooseClick1()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         chooseNum = 1;
         ChooseStory();
         storyEF.ResetToBeginning();
     }
     public void StoryChooseClick2()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         chooseNum = 2;
         ChooseStory();
         storyEF.ResetToBeginning();
     }
     public void StoryChooseClick3()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
         chooseNum = 3;
         ChooseStory();
         storyEF.ResetToBeginning();
@@ -1744,6 +1808,9 @@ public class MainSC : MonoBehaviour
 
     public void PhotoClick()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
+
         if (adsReady)
         {
             ShowRewardedAd();

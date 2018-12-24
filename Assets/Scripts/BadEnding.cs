@@ -12,6 +12,8 @@ public class BadEnding : MonoBehaviour
     
 	void Start ()
     {
+        BGMSC.Instance().BGMSource.clip = BGMSC.Instance().BadEnd;
+        BGMSC.Instance().BGMSource.Play();
         PlayerPrefs.DeleteAll();
         chara.SetActive(true);
     }

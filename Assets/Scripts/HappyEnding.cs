@@ -14,12 +14,17 @@ public class HappyEnding : MonoBehaviour
     public List<GameObject> charaImg;
     public int StartEnd;
     public GameObject happyendingArt;
+    public UILabel endingTX;
 
     void Start ()
     {
+        BGMSC.Instance().BGMSource.clip = BGMSC.Instance().HappyEnd;
+        BGMSC.Instance().BGMSource.Play();
         StartEnd = PlayerPrefs.GetInt("HappyEnd");
         if (StartEnd == 1)
         {
+            BGMSC.Instance().BGMSource.clip = BGMSC.Instance().HappyEndLast;
+            BGMSC.Instance().BGMSource.Play();
             StoryNum = Random.Range(0, 5);
         }
         Story();
@@ -53,6 +58,9 @@ public class HappyEnding : MonoBehaviour
 
     void Story()
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
+
         if (StartEnd == 0)
         {
             if (StoryNum == 0)
@@ -114,6 +122,7 @@ public class HappyEnding : MonoBehaviour
             }
             if (StoryNum == 9)
             {
+                endingTX.text = PlayerPrefs.GetString("UserName");
                 happyendingArt.SetActive(true); //해피엔딩 일러
                 textBox.SetActive(false);
                 charaImg[0].SetActive(false);
