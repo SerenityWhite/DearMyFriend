@@ -16,9 +16,9 @@ public class PlayerState : MonoBehaviour
     public int talkChance;
     public int outdoorChance;
     public float hart;
-    public float accumhart;
     public int hartLevel;
     public int tutorialBool;
+    public int tutorialBool02;
     public int outdoorNum;
 
 	void Start ()
@@ -34,52 +34,38 @@ public class PlayerState : MonoBehaviour
         talkChance = PlayerPrefs.GetInt("talkChance");
         outdoorChance = PlayerPrefs.GetInt("outdoorChance");
         hart = PlayerPrefs.GetFloat("hart");
-        accumhart = PlayerPrefs.GetFloat("accumhart");
         hartLevel = PlayerPrefs.GetInt("hartLevel");
         tutorialBool = PlayerPrefs.GetInt("tutorialBool");
+        tutorialBool02 = PlayerPrefs.GetInt("tutorialBool02");
         outdoorNum = PlayerPrefs.GetInt("OutDoorNum");
 
         if (hart <= -100)
             SceneManager.LoadScene(5);
 
-        if (accumhart >= 1500)
+        if (hart >= 1500)
         {
             hartLevel = 1;
             PlayerPrefs.SetInt("hartLevel", hartLevel);
-            hart = 0;
-            PlayerPrefs.SetFloat("hart", hart);
         }
-
-        if (accumhart >= 3500)
+        if (hart >= 3500)
         {
             hartLevel = 2;
             PlayerPrefs.SetInt("hartLevel", hartLevel);
-            hart = 0;
-            PlayerPrefs.SetFloat("hart", hart);
         }
-
-        if (accumhart >= 5500)
+        if (hart >= 5500)
         {
             hartLevel = 3;
             PlayerPrefs.SetInt("hartLevel", hartLevel);
-            hart = 0;
-            PlayerPrefs.SetFloat("hart", hart);
         }
-
-        if (accumhart >= 8500)
+        if (hart >= 8500)
         {
             hartLevel = 4;
             PlayerPrefs.SetInt("hartLevel", hartLevel);
-            hart = 0;
-            PlayerPrefs.SetFloat("hart", hart);
         }
-
-        if (accumhart >= 10000)
+        if (hart >= 10000)
         {
             hartLevel = 5;
             PlayerPrefs.SetInt("hartLevel", hartLevel);
-            hart = 0;
-            PlayerPrefs.SetFloat("hart", hart);
         }
     }
 }

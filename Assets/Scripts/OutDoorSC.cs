@@ -12,6 +12,7 @@ public class OutDoorSC : MonoBehaviour
 
     public List<GameObject> chara;
     public GameObject talk;
+    public GameObject textwall;
     public TypewriterEffect storyEF;
     public UILabel nameTX;
     public UILabel storyTX;
@@ -35,6 +36,12 @@ public class OutDoorSC : MonoBehaviour
 
     void Start ()
     {
+        schoolSpecial = PlayerPrefs.GetInt("OutDoorSchool");
+        firstBool[0] = PlayerPrefs.GetInt("OutDoorFirstPark");
+        firstBool[1] = PlayerPrefs.GetInt("OutDoorFirstStore");
+        firstBool[2] = PlayerPrefs.GetInt("OutDoorFirstSchool");
+        firstBool[3] = PlayerPrefs.GetInt("OutDoorFirstStreet");
+
         if (PlayerState.Instance().outdoorNum == 0)
         {
             BGMSC.Instance().BGMSource.clip = BGMSC.Instance().Park;
@@ -154,12 +161,6 @@ public class OutDoorSC : MonoBehaviour
             exit.SetActive(true);
             option.SetActive(false);
         }
-
-        schoolSpecial = PlayerPrefs.GetInt("OutDoorSchool");
-        firstBool[0] = PlayerPrefs.GetInt("OutDoorFirstPark");
-        firstBool[1] = PlayerPrefs.GetInt("OutDoorFirstStore");
-        firstBool[2] = PlayerPrefs.GetInt("OutDoorFirstSchool");
-        firstBool[3] = PlayerPrefs.GetInt("OutDoorFirstStreet");
     }
 
     public void OptionOn()
@@ -209,12 +210,13 @@ public class OutDoorSC : MonoBehaviour
     {
         storyEF.Finish();
         storyFinish = true;
+        if (StoryChoose == true)
+            textwall.SetActive(false);
+        if (StoryChoose == false)
+            textwall.SetActive(true);
     }
     public void NextStory()
     {
-        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
-        SoundSC.Instance().Sound.Play();
-
         if (storyFinish == true && StoryChoose == false)
         {
             StorySubNum += 1;
@@ -236,6 +238,11 @@ public class OutDoorSC : MonoBehaviour
         {
             storyFinish = false;
         }
+    }
+    public void TextWallClick()
+    {
+        NextStory();
+        textwall.SetActive(false);
     }
 
     public void StoryChooseClick1()
@@ -336,8 +343,6 @@ public class OutDoorSC : MonoBehaviour
                     TalkOff();
                     PlayerState.Instance().hart += 100;
                     PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                    PlayerState.Instance().accumhart += 100;
-                    PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                     systemMassage.SetActive(true);
                     systemMassageTX.text = "오늘 즐거웠어요.";
                     firstBool[0] = 1;
@@ -441,8 +446,6 @@ public class OutDoorSC : MonoBehaviour
                         TalkOff();
                         PlayerState.Instance().hart += 100;
                         PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                        PlayerState.Instance().accumhart += 100;
-                        PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                         systemMassage.SetActive(true);
                         systemMassageTX.text = "기분 좋은 하루였어요.";
                     } // 스토리 종료
@@ -520,8 +523,6 @@ public class OutDoorSC : MonoBehaviour
                     TalkOff();
                     PlayerState.Instance().hart += 125;
                     PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                    PlayerState.Instance().accumhart += 125;
-                    PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                     systemMassage.SetActive(true);
                     systemMassageTX.text = "비 온 뒤의 공원도 기분 좋네요.";
                 } // 스토리 종료
@@ -570,8 +571,6 @@ public class OutDoorSC : MonoBehaviour
                     TalkOff();
                     PlayerState.Instance().hart += 150;
                     PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                    PlayerState.Instance().accumhart += 150;
-                    PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                     systemMassage.SetActive(true);
                     systemMassageTX.text = "나중에 또 같이 피크닉해요.";
                 } // 스토리 종료
@@ -636,8 +635,6 @@ public class OutDoorSC : MonoBehaviour
                     TalkOff();
                     PlayerState.Instance().hart += 100;
                     PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                    PlayerState.Instance().accumhart += 100;
-                    PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                     systemMassage.SetActive(true);
                     systemMassageTX.text = "잘 먹었어요, 고맙습니다.";
                     firstBool[1] = 1;
@@ -722,8 +719,6 @@ public class OutDoorSC : MonoBehaviour
                         TalkOff();
                         PlayerState.Instance().hart += 100;
                         PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                        PlayerState.Instance().accumhart += 100;
-                        PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                         systemMassage.SetActive(true);
                         systemMassageTX.text = "저도 제가 원하는 행복을 찾을 수 있을까요?";
                     } // 스토리 종료
@@ -771,8 +766,6 @@ public class OutDoorSC : MonoBehaviour
                         TalkOff();
                         PlayerState.Instance().hart += 100;
                         PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                        PlayerState.Instance().accumhart += 100;
-                        PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                         systemMassage.SetActive(true);
                         systemMassageTX.text = "오늘도 맛있는 과자가 참 많네요.";
                     } // 스토리 종료
@@ -835,8 +828,6 @@ public class OutDoorSC : MonoBehaviour
                     TalkOff();
                     PlayerState.Instance().hart += 150;
                     PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                    PlayerState.Instance().accumhart += 150;
-                    PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                     systemMassage.SetActive(true);
                     systemMassageTX.text = "그 파이 맛있죠? \n제가 좋아하는 거에요.";
                 } // 스토리 종료
@@ -905,8 +896,6 @@ public class OutDoorSC : MonoBehaviour
                     TalkOff();
                     PlayerState.Instance().hart += 150;
                     PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                    PlayerState.Instance().accumhart += 150;
-                    PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                     systemMassage.SetActive(true);
                     systemMassageTX.text = "세상에 하나뿐인 사람이 되고 싶어요.";
                 } // 스토리 종료
@@ -1000,8 +989,6 @@ public class OutDoorSC : MonoBehaviour
                     TalkOff();
                     PlayerState.Instance().hart -= 70;
                     PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                    PlayerState.Instance().accumhart -= 70;
-                    PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                     systemMassage.SetActive(true);
                     systemMassageTX.text = "(나리를 집에 데려다주자)";
                     firstBool[2] = 1;
@@ -1089,8 +1076,6 @@ public class OutDoorSC : MonoBehaviour
                     TalkOff();
                     PlayerState.Instance().hart += 140;
                     PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                    PlayerState.Instance().accumhart += 140;
-                    PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                     systemMassage.SetActive(true);
                     systemMassageTX.text = "여기까진 괜찮은 것 같아요.";
                     schoolSpecial = 1;
@@ -1160,8 +1145,6 @@ public class OutDoorSC : MonoBehaviour
                         TalkOff();
                         PlayerState.Instance().hart += 150;
                         PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                        PlayerState.Instance().accumhart += 150;
-                        PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                         systemMassage.SetActive(true);
                         systemMassageTX.text = "오랜만에 맛있었어요. \n오늘도 고마워요.";
                     } // 스토리 종료
@@ -1233,8 +1216,6 @@ public class OutDoorSC : MonoBehaviour
                         TalkOff();
                         PlayerState.Instance().hart += 200;
                         PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                        PlayerState.Instance().accumhart += 200;
-                        PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                         systemMassage.SetActive(true);
                         systemMassageTX.text = "그럼에도 이 곳에 희망이 있을까요?";
                     } // 스토리 종료
@@ -1276,8 +1257,6 @@ public class OutDoorSC : MonoBehaviour
                     TalkOff();
                     PlayerState.Instance().hart += 100;
                     PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                    PlayerState.Instance().accumhart += 100;
-                    PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                     systemMassage.SetActive(true);
                     systemMassageTX.text = "카페베어라고 했죠? 또 오고 싶어요.";
                     firstBool[3] = 1;
@@ -1344,8 +1323,6 @@ public class OutDoorSC : MonoBehaviour
                         TalkOff();
                         PlayerState.Instance().hart += 100;
                         PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                        PlayerState.Instance().accumhart += 100;
-                        PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                         systemMassage.SetActive(true);
                         systemMassageTX.text = "다음에 또 같이 올 수 있을까요?";
                     } // 스토리 종료
@@ -1399,8 +1376,6 @@ public class OutDoorSC : MonoBehaviour
                         TalkOff();
                         PlayerState.Instance().hart += 100;
                         PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                        PlayerState.Instance().accumhart += 100;
-                        PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                         systemMassage.SetActive(true);
                         systemMassageTX.text = "세잎 클로버 속에서 네잎 클로버를 찾는 것 같아요.";
                     } // 스토리 종료
@@ -1478,8 +1453,6 @@ public class OutDoorSC : MonoBehaviour
                     TalkOff();
                     PlayerState.Instance().hart += 125;
                     PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                    PlayerState.Instance().accumhart += 125;
-                    PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                     systemMassage.SetActive(true);
                     systemMassageTX.text = "주인공의 사랑이 감동적이었어요.";
                 } // 스토리 종료
@@ -1539,8 +1512,6 @@ public class OutDoorSC : MonoBehaviour
                     TalkOff();
                     PlayerState.Instance().hart += 150;
                     PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                    PlayerState.Instance().accumhart += 150;
-                    PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                     systemMassage.SetActive(true);
                     systemMassageTX.text = "옷이 안 맞는 상황을 생각하니 끔찍해요.";
                 } // 스토리 종료
@@ -1562,8 +1533,6 @@ public class OutDoorSC : MonoBehaviour
                         storyTX.text = "그렇다면 선생님도 저 애들처럼 저렇게 뛰어 놀았겠네요.";
                         PlayerState.Instance().hart += 100;
                         PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                        PlayerState.Instance().accumhart += 100;
-                        PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                         ChooseExit();
                     }
                     if (chooseNum == 2)
@@ -1572,8 +1541,6 @@ public class OutDoorSC : MonoBehaviour
                         storyTX.text = "저도 많이 해보진 않았어요. 그땐 소꿉장난이 더 재미있었고.";
                         PlayerState.Instance().hart += 120;
                         PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                        PlayerState.Instance().accumhart += 120;
-                        PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                         ChooseExit();
                     }
                     if (chooseNum == 3)
@@ -1582,8 +1549,6 @@ public class OutDoorSC : MonoBehaviour
                         storyTX.text = "공을 별로 안 좋아하시나보다. 그럴 수 있죠.";
                         PlayerState.Instance().hart += 100;
                         PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                        PlayerState.Instance().accumhart += 100;
-                        PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                         ChooseExit();
                     }
                 }
@@ -1600,8 +1565,6 @@ public class OutDoorSC : MonoBehaviour
                             PlayerPrefs.SetInt("money", PlayerState.Instance().money);
                             PlayerState.Instance().hart += 300;
                             PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                            PlayerState.Instance().accumhart += 300;
-                            PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                             ChooseExit();
                         }
                         else
@@ -1617,8 +1580,6 @@ public class OutDoorSC : MonoBehaviour
                         storyTX.text = "저쪽에서 핫도그 팔고 있네요. 잠깐 다녀올게요.";
                         PlayerState.Instance().hart += 100;
                         PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                        PlayerState.Instance().accumhart += 100;
-                        PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                         ChooseExit();
                     }
                 }
@@ -1635,8 +1596,6 @@ public class OutDoorSC : MonoBehaviour
                         storyTX.text = "역시 선생님은 모범적인 분이시네요. \n부끄럽지만 저는 어릴 때 쓰레기통을 못 찾아서 길가에 그냥 버려본 적이 있어요. \n다시 생각해도 부끄럽네요.";
                         PlayerState.Instance().hart += 125;
                         PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                        PlayerState.Instance().accumhart += 125;
-                        PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                         ChooseExit();
                     }
                     if (chooseNum == 2)
@@ -1647,8 +1606,6 @@ public class OutDoorSC : MonoBehaviour
                         storyTX.text = "저도 많이 해보진 않았어요. 그땐 소꿉장난이 더 재미있었고.";
                         PlayerState.Instance().hart += 150;
                         PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                        PlayerState.Instance().accumhart += 150;
-                        PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                         ChooseExit();
                     }
                 }
@@ -1671,8 +1628,6 @@ public class OutDoorSC : MonoBehaviour
                             PlayerPrefs.SetInt("money", PlayerState.Instance().money);
                             PlayerState.Instance().hart += 180;
                             PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                            PlayerState.Instance().accumhart += 180;
-                            PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                             ChooseExit();
                         }
                         else
@@ -1687,8 +1642,6 @@ public class OutDoorSC : MonoBehaviour
                         storyTX.text = "걱정해주셔서 고마워요. 그치만 정말 괜찮아요.";
                         PlayerState.Instance().hart += 100;
                         PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                        PlayerState.Instance().accumhart += 100;
-                        PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                         ChooseExit();
                     }
                 }
@@ -1705,8 +1658,6 @@ public class OutDoorSC : MonoBehaviour
                         storyTX.text = "튀김은 맛 없는 게 거의 없는 것 같아요. \n만두나 감자를 튀겨도 맛있고….";
                         PlayerState.Instance().hart += 130;
                         PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                        PlayerState.Instance().accumhart += 130;
-                        PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                         ChooseExit();
                     }
                     if (chooseNum == 2)
@@ -1717,8 +1668,6 @@ public class OutDoorSC : MonoBehaviour
                         storyTX.text = "기름기가 많아서 다이어트엔 가장 큰 적인 것 같아요. \n그래도 저는 맛있어서 좋아해요.";
                         PlayerState.Instance().hart += 125;
                         PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                        PlayerState.Instance().accumhart += 125;
-                        PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                         ChooseExit();
                     }
                 }
@@ -1737,8 +1686,6 @@ public class OutDoorSC : MonoBehaviour
                         storyTX.text = "저는 달리기 잘 못해요. \n그래서 달리기 잘하는 애들을 볼 때마다 신기했어요.";
                         PlayerState.Instance().hart += 130;
                         PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                        PlayerState.Instance().accumhart += 130;
-                        PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                         ChooseExit();
                     }
                     if (chooseNum == 2)
@@ -1747,8 +1694,6 @@ public class OutDoorSC : MonoBehaviour
                         storyTX.text = "달리기는 잘하는 것보다 꾸준히 하는 편이 다이어트에도 더 좋다고 하던데. \n물론 대회에 나갈땐 얘기가 달라지지만요.";
                         PlayerState.Instance().hart += 125;
                         PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                        PlayerState.Instance().accumhart += 125;
-                        PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                         ChooseExit();
                     }
                     if (chooseNum == 3)
@@ -1759,8 +1704,6 @@ public class OutDoorSC : MonoBehaviour
                         storyTX.text = "저도 잘 못하는데. 똑같네요, 우리.";
                         PlayerState.Instance().hart += 140;
                         PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                        PlayerState.Instance().accumhart += 140;
-                        PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                         ChooseExit();
                     }
                 }
@@ -1783,8 +1726,6 @@ public class OutDoorSC : MonoBehaviour
                             PlayerPrefs.SetInt("money", PlayerState.Instance().money);
                             PlayerState.Instance().hart += 600;
                             PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                            PlayerState.Instance().accumhart += 600;
-                            PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                             ChooseExit();
                         }
                         else
@@ -1799,8 +1740,6 @@ public class OutDoorSC : MonoBehaviour
                         storyTX.text = "먹어보고 싶은데… 잠깐 들르면 안될까요?";
                         PlayerState.Instance().hart += 100;
                         PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                        PlayerState.Instance().accumhart += 100;
-                        PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                         ChooseExit();
                     }
                 }
@@ -1817,8 +1756,6 @@ public class OutDoorSC : MonoBehaviour
                         storyTX.text = "저도 정말 좋아해요. 단 걸 좋아하는 사람은 마음이 따뜻한 사람이 많대요.";
                         PlayerState.Instance().hart += 150;
                         PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                        PlayerState.Instance().accumhart += 150;
-                        PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                         ChooseExit();
                     }
                     if (chooseNum == 2)
@@ -1827,8 +1764,6 @@ public class OutDoorSC : MonoBehaviour
                         storyTX.text = "저는 좋아해요. 단 걸 먹으면 행복해지는 호르몬이 나오는데, \n단 걸 좋아하는 사람은 행복해지고 싶어서 좋아한다는 말도 있었어요. \n정말로 그런 걸까요?";
                         PlayerState.Instance().hart += 130;
                         PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                        PlayerState.Instance().accumhart += 130;
-                        PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                         ChooseExit();
                     }
                 }

@@ -54,8 +54,8 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 2016c95580efb1047ae0334cdf54c8cc, type: 2}
   mSprites:
   - name: birthday
-    x: 838
-    y: 95
+    x: 1281
+    y: 1119
     width: 492
     height: 460
     borderLeft: 0
@@ -67,8 +67,8 @@ MonoBehaviour:
     paddingTop: 8
     paddingBottom: 44
   - name: blusher
-    x: 129
-    y: 10
+    x: 1794
+    y: 1920
     width: 120
     height: 128
     borderLeft: 0
@@ -80,8 +80,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: bread (1)
-    x: 379
-    y: 61
+    x: 1915
+    y: 1952
     width: 128
     height: 96
     borderLeft: 0
@@ -93,8 +93,8 @@ MonoBehaviour:
     paddingTop: 16
     paddingBottom: 16
   - name: breakfast
-    x: 250
-    y: 59
+    x: 1794
+    y: 1733
     width: 128
     height: 79
     borderLeft: 0
@@ -106,8 +106,8 @@ MonoBehaviour:
     paddingTop: 24
     paddingBottom: 25
   - name: ear
-    x: 0
-    y: 139
+    x: 384
+    y: 955
     width: 336
     height: 372
     borderLeft: 0
@@ -119,8 +119,8 @@ MonoBehaviour:
     paddingTop: 72
     paddingBottom: 68
   - name: fast-food
-    x: 337
-    y: 158
+    x: 1794
+    y: 1813
     width: 128
     height: 106
     borderLeft: 0
@@ -133,7 +133,7 @@ MonoBehaviour:
     paddingBottom: 11
   - name: hed
     x: 0
-    y: 512
+    y: 815
     width: 383
     height: 512
     borderLeft: 0
@@ -145,8 +145,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: loaf
-    x: 0
-    y: 10
+    x: 1774
+    y: 1451
     width: 128
     height: 128
     borderLeft: 0
@@ -158,8 +158,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: music
-    x: 384
-    y: 556
+    x: 1281
+    y: 1580
     width: 512
     height: 468
     borderLeft: 0
@@ -171,8 +171,8 @@ MonoBehaviour:
     paddingTop: 40
     paddingBottom: 4
   - name: ticket
-    x: 337
-    y: 265
+    x: 721
+    y: 1081
     width: 500
     height: 246
     borderLeft: 0
@@ -183,6 +183,19 @@ MonoBehaviour:
     paddingRight: 6
     paddingTop: 133
     paddingBottom: 133
+  - name: tutorial
+    x: 0
+    y: 1328
+    width: 1280
+    height: 720
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   mPixelSize: 1
   mReplacement: {fileID: 0}
   mCoordinates: 0

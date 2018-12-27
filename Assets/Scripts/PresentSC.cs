@@ -64,8 +64,6 @@ public class PresentSC : MonoBehaviour
                 PlayerPrefs.SetInt("cosmetic[0]", cosmetic[0]);
                 PlayerState.Instance().hart += 45;
                 PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                PlayerState.Instance().accumhart += 45;
-                PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                 presentOKTX.text = "감사합니다.\n(Happy가 45 증가하였습니다.)";
             }
             else
@@ -81,8 +79,6 @@ public class PresentSC : MonoBehaviour
                 PlayerPrefs.SetInt("food[0]", food[0]);
                 PlayerState.Instance().hart += 75;
                 PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                PlayerState.Instance().accumhart += 75;
-                PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                 presentOKTX.text = "잘 먹겠습니다.\n(Happy가 75 증가하였습니다.)";
             }
             else
@@ -98,8 +94,6 @@ public class PresentSC : MonoBehaviour
                 PlayerPrefs.SetInt("food[1]", food[1]);
                 PlayerState.Instance().hart += 200;
                 PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                PlayerState.Instance().accumhart += 200;
-                PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                 presentOKTX.text = "전혀 생각지도 못했어요.\n(Happy가 200 증가하였습니다.)";
             }
             else
@@ -115,8 +109,6 @@ public class PresentSC : MonoBehaviour
                 PlayerPrefs.SetInt("life[0]", life[0]);
                 PlayerState.Instance().hart += 100;
                 PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                PlayerState.Instance().accumhart += 100;
-                PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                 presentOKTX.text = "잘 쓸게요.\n(Happy가 100 증가하였습니다.)";
             }
             else
@@ -132,8 +124,6 @@ public class PresentSC : MonoBehaviour
                 PlayerPrefs.SetInt("life[1]", life[1]);
                 PlayerState.Instance().hart += 139;
                 PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                PlayerState.Instance().accumhart += 139;
-                PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                 presentOKTX.text = "좋아하는 곡이에요. 잘 들을게요.\n(Happy가 139 증가하였습니다.)";
             }
             else

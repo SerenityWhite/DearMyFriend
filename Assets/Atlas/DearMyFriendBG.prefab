@@ -93,8 +93,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: happyEnd
-    x: 2562
-    y: 492
+    x: 2049
+    y: 3376
     width: 1280
     height: 720
     borderLeft: 0
@@ -120,7 +120,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: main
     x: 0
-    y: 2978
+    y: 2243
     width: 2048
     height: 1118
     borderLeft: 0
@@ -133,7 +133,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: main1
     x: 0
-    y: 2243
+    y: 3362
     width: 2048
     height: 734
     borderLeft: 0
@@ -146,7 +146,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: park
     x: 1281
-    y: 492
+    y: 1213
     width: 1280
     height: 720
     borderLeft: 0
@@ -158,8 +158,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: parttimeBG
-    x: 2049
-    y: 1934
+    x: 2562
+    y: 492
     width: 1280
     height: 720
     borderLeft: 0
@@ -171,32 +171,6 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: room
-    x: 2049
-    y: 2655
-    width: 1280
-    height: 720
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: roomend
-    x: 2049
-    y: 3376
-    width: 1280
-    height: 720
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: roomnight
     x: 0
     y: 801
     width: 1280
@@ -209,9 +183,35 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: school
+  - name: roomend
     x: 1281
-    y: 1213
+    y: 492
+    width: 1280
+    height: 720
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: roomnight
+    x: 0
+    y: 1522
+    width: 1280
+    height: 720
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: school
+    x: 2049
+    y: 1934
     width: 1280
     height: 720
     borderLeft: 0
@@ -223,8 +223,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: street
-    x: 0
-    y: 1522
+    x: 2049
+    y: 2655
     width: 1280
     height: 720
     borderLeft: 0

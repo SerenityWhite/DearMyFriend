@@ -10,7 +10,7 @@ public class HikiEnding : MonoBehaviour
     public GameObject badEnding02;
     public GameObject gameOver;
 
-	void Start ()
+    void Start ()
     {
         BGMSC.Instance().BGMSource.clip = BGMSC.Instance().BadEnd;
         BGMSC.Instance().BGMSource.Play();

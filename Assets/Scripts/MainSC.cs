@@ -22,7 +22,9 @@ public class MainSC : MonoBehaviour
     public GameObject talk;
     public GameObject present;
     public GameObject HappyEnding;
+    public GameObject tutorial;
 
+    public GameObject textwall;
     public TypewriterEffect storyEF;
     public UILabel nameTX;
     public UILabel storyTX;
@@ -46,15 +48,20 @@ public class MainSC : MonoBehaviour
 
     bool adsReady = true;
 
+    public int LastSceneNum;
+
     void Start ()
     {
-
+        LastSceneNum = 2;
+        PlayerPrefs.SetInt("LastSceneNum", LastSceneNum);
     }
 	
 	void Update ()
     {
         if (PlayerState.Instance().tutorialBool == 1)
             guideArrow.SetActive(true);
+        if (PlayerState.Instance().tutorialBool02 == 1)
+            tutorial.SetActive(true);
 
         day.text = "" + PlayerState.Instance().day;
         money.text = "" + PlayerState.Instance().money;
@@ -68,25 +75,25 @@ public class MainSC : MonoBehaviour
         if (PlayerState.Instance().hartLevel == 1)
         {
             hartLevel.text = "♥";
-            hartPink.value = PlayerState.Instance().hart / 2000;
+            hartPink.value = PlayerState.Instance().hart / 3500;
             hartBlue.value = PlayerState.Instance().hart / -100;
         }
         if (PlayerState.Instance().hartLevel == 2)
         {
             hartLevel.text = "♥♥";
-            hartPink.value = PlayerState.Instance().hart / 2000;
+            hartPink.value = PlayerState.Instance().hart / 5500;
             hartBlue.value = PlayerState.Instance().hart / -100;
         }
         if (PlayerState.Instance().hartLevel == 3)
         {
             hartLevel.text = "♥♥♥";
-            hartPink.value = PlayerState.Instance().hart / 3000;
+            hartPink.value = PlayerState.Instance().hart / 8500;
             hartBlue.value = PlayerState.Instance().hart / -100;
         }
         if (PlayerState.Instance().hartLevel == 4)
         {
             hartLevel.text = "♥♥♥♥";
-            hartPink.value = PlayerState.Instance().hart / 1500;
+            hartPink.value = PlayerState.Instance().hart / 10000;
             hartBlue.value = PlayerState.Instance().hart / -100;
         }
         if (PlayerState.Instance().hartLevel == 5)
@@ -125,6 +132,17 @@ public class MainSC : MonoBehaviour
         }
     }
 
+    public void TutorialOff()
+    {
+        tutorial.SetActive(false);
+        PlayerState.Instance().tutorialBool02 = 0;
+        PlayerPrefs.SetInt("tutorialBool02", PlayerState.Instance().tutorialBool02);
+    }
+    public void TutorialOn()
+    {
+        tutorial.SetActive(true);
+    }
+
     public void NextDay()
     {
         SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
@@ -155,7 +173,7 @@ public class MainSC : MonoBehaviour
         Dream();
         PlayerState.Instance().day += 1;
         PlayerPrefs.SetInt("day", PlayerState.Instance().day);
-        PlayerState.Instance().talkChance = 3;
+        PlayerState.Instance().talkChance = 5;
         PlayerPrefs.SetInt("talkChance", PlayerState.Instance().talkChance);
         PlayerState.Instance().outdoorChance = 1;
         PlayerPrefs.SetInt("outdoorChance", PlayerState.Instance().outdoorChance);
@@ -181,8 +199,6 @@ public class MainSC : MonoBehaviour
                 systemTX.text = "오늘은 나리의 기분이 괜찮아 보입니다. \n좋은 꿈이라도 꾼 걸까요?\n(Happy가 50 증가했습니다.)";
                 PlayerState.Instance().hart += 50;
                 PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                PlayerState.Instance().accumhart += 50;
-                PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
             }
 
             if (DreamNum0 >= 90 && DreamNum0 < 100)
@@ -191,8 +207,6 @@ public class MainSC : MonoBehaviour
                 systemTX.text = "오늘은 나리의 표정이 좋지 않습니다. \n나쁜 꿈이라도 꾼 걸까요?\n(Happy가 10 감소했습니다.)";
                 PlayerState.Instance().hart -= 10;
                 PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                PlayerState.Instance().accumhart -= 10;
-                PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
             }
         }
         if (PlayerState.Instance().hartLevel == 1)
@@ -204,8 +218,6 @@ public class MainSC : MonoBehaviour
                 systemTX.text = "오늘은 나리의 기분이 괜찮아 보입니다. \n좋은 꿈이라도 꾼 걸까요?\n(Happy가 50 증가했습니다.)";
                 PlayerState.Instance().hart += 50;
                 PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                PlayerState.Instance().accumhart += 50;
-                PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
             }
 
             if (DreamNum0 >= 90 && DreamNum0 < 100)
@@ -214,8 +226,6 @@ public class MainSC : MonoBehaviour
                 systemTX.text = "오늘은 나리의 표정이 좋지 않습니다. \n나쁜 꿈이라도 꾼 걸까요?\n(Happy가 10 감소했습니다.)";
                 PlayerState.Instance().hart -= 10;
                 PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                PlayerState.Instance().accumhart -= 10;
-                PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
             }
         }
         if (PlayerState.Instance().hartLevel == 2)
@@ -227,8 +237,6 @@ public class MainSC : MonoBehaviour
                 systemTX.text = "오늘은 나리의 기분이 괜찮아 보입니다. \n좋은 꿈이라도 꾼 걸까요?\n(Happy가 50 증가했습니다.)";
                 PlayerState.Instance().hart += 50;
                 PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                PlayerState.Instance().accumhart += 50;
-                PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
             }
 
             if (DreamNum0 >= 90 && DreamNum0 < 100)
@@ -237,8 +245,6 @@ public class MainSC : MonoBehaviour
                 systemTX.text = "오늘은 나리의 표정이 좋지 않습니다. \n나쁜 꿈이라도 꾼 걸까요?\n(Happy가 10 감소했습니다.)";
                 PlayerState.Instance().hart -= 10;
                 PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                PlayerState.Instance().accumhart -= 10;
-                PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
             }
         }
         if (PlayerState.Instance().hartLevel == 3)
@@ -250,8 +256,6 @@ public class MainSC : MonoBehaviour
                 systemTX.text = "오늘은 나리의 기분이 괜찮아 보입니다. \n좋은 꿈이라도 꾼 걸까요?\n(Happy가 50 증가했습니다.)";
                 PlayerState.Instance().hart += 50;
                 PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                PlayerState.Instance().accumhart += 50;
-                PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
             }
 
             if (DreamNum0 >= 90 && DreamNum0 < 100)
@@ -260,8 +264,6 @@ public class MainSC : MonoBehaviour
                 systemTX.text = "오늘은 나리의 표정이 좋지 않습니다. \n나쁜 꿈이라도 꾼 걸까요?\n(Happy가 10 감소했습니다.)";
                 PlayerState.Instance().hart -= 10;
                 PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                PlayerState.Instance().accumhart -= 10;
-                PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
             }
         }
         if (PlayerState.Instance().hartLevel == 4)
@@ -273,8 +275,6 @@ public class MainSC : MonoBehaviour
                 systemTX.text = "오늘은 나리의 기분이 괜찮아 보입니다. \n좋은 꿈이라도 꾼 걸까요?\n(Happy가 50 증가했습니다.)";
                 PlayerState.Instance().hart += 50;
                 PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                PlayerState.Instance().accumhart += 50;
-                PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
             }
 
             if (DreamNum0 >= 90 && DreamNum0 < 100)
@@ -283,8 +283,6 @@ public class MainSC : MonoBehaviour
                 systemTX.text = "오늘은 나리의 표정이 좋지 않습니다. \n나쁜 꿈이라도 꾼 걸까요?\n(Happy가 10 감소했습니다.)";
                 PlayerState.Instance().hart -= 10;
                 PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                PlayerState.Instance().accumhart -= 10;
-                PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
             }
         }
 
@@ -300,6 +298,27 @@ public class MainSC : MonoBehaviour
             systemMassage.SetActive(true);
             systemTX.text = "감기에 걸려서 병원 치료를 받았습니다. \n옮기지 말아야 할 텐데 걱정이네요.";
             PlayerState.Instance().money -= 13000;
+            PlayerPrefs.SetInt("money", PlayerState.Instance().money);
+        }
+        if (PlayerState.Instance().day == 18)
+        {
+            systemMassage.SetActive(true);
+            systemTX.text = "길에 떨어진 지갑의 주인을 찾아주고 \n사례금을 받았습니다.";
+            PlayerState.Instance().money += 20000;
+            PlayerPrefs.SetInt("money", PlayerState.Instance().money);
+        }
+        if (PlayerState.Instance().day == 24)
+        {
+            systemMassage.SetActive(true);
+            systemTX.text = "같은 학교에서 일하는 선생님이 \n결혼식을 해서 축의금을 냈습니다.";
+            PlayerState.Instance().money -= 50000;
+            PlayerPrefs.SetInt("money", PlayerState.Instance().money);
+        }
+        if (PlayerState.Instance().day == 27)
+        {
+            systemMassage.SetActive(true);
+            systemTX.text = "복권을 샀는데 4등에 당첨됐습니다. \n구매처에서 5만원으로 교환했습니다.";
+            PlayerState.Instance().money += 50000;
             PlayerPrefs.SetInt("money", PlayerState.Instance().money);
         }
     }
@@ -400,6 +419,8 @@ public class MainSC : MonoBehaviour
     }
     public void OutdoorPark()
     {
+        PlayerState.Instance().outdoorChance -= 1;
+        PlayerPrefs.SetInt("outdoorChance", PlayerState.Instance().outdoorChance);
         SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
         SoundSC.Instance().Sound.Play();
         PlayerState.Instance().outdoorNum = 0;
@@ -408,6 +429,8 @@ public class MainSC : MonoBehaviour
     }
     public void OutdoorShop()
     {
+        PlayerState.Instance().outdoorChance -= 1;
+        PlayerPrefs.SetInt("outdoorChance", PlayerState.Instance().outdoorChance);
         SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
         SoundSC.Instance().Sound.Play();
         PlayerState.Instance().outdoorNum = 1;
@@ -416,6 +439,8 @@ public class MainSC : MonoBehaviour
     }
     public void OutdoorSchool()
     {
+        PlayerState.Instance().outdoorChance -= 1;
+        PlayerPrefs.SetInt("outdoorChance", PlayerState.Instance().outdoorChance);
         SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
         SoundSC.Instance().Sound.Play();
         PlayerState.Instance().outdoorNum = 2;
@@ -424,6 +449,8 @@ public class MainSC : MonoBehaviour
     }
     public void OutdoorStreet()
     {
+        PlayerState.Instance().outdoorChance -= 1;
+        PlayerPrefs.SetInt("outdoorChance", PlayerState.Instance().outdoorChance);
         SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
         SoundSC.Instance().Sound.Play();
         PlayerState.Instance().outdoorNum = 3;
@@ -551,12 +578,13 @@ public class MainSC : MonoBehaviour
     {
         storyEF.Finish();
         storyFinish = true;
+        if (StoryChoose == true)
+            textwall.SetActive(false);
+        if (StoryChoose == false)
+            textwall.SetActive(true);
     }
     public void NextStory()
     {
-        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
-        SoundSC.Instance().Sound.Play();
-
         if (storyFinish == true && StoryChoose == false)
         {
             storyFinish = false;
@@ -567,6 +595,11 @@ public class MainSC : MonoBehaviour
         {
             storyFinish = false;
         }
+    }
+    public void TextWallClick()
+    {
+        NextStory();
+        textwall.SetActive(false);
     }
 
     public void StoryChooseClick1()
@@ -1007,14 +1040,10 @@ public class MainSC : MonoBehaviour
                     storyTX.text = "(지금은 원하는 대로 해주는 것이 좋겠다.)";
                     StoryChoose = false;
                 }
-
                 if (chooseNum == 2)
                 {
-                    int hartminus = Random.Range(10, 20);
-                    PlayerState.Instance().hart -= hartminus;
+                    PlayerState.Instance().hart -= Random.Range(10, 20);
                     PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                    PlayerState.Instance().accumhart -= hartminus;
-                    PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                     charaImg[0].SetActive(false);
                     charaImg[3].SetActive(true);
                     chooseBox[0].SetActive(false);
@@ -1031,8 +1060,6 @@ public class MainSC : MonoBehaviour
                 {
                     PlayerState.Instance().hart += 10;
                     PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                    PlayerState.Instance().accumhart += 10;
-                    PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                     charaImg[0].SetActive(false);
                     charaImg[1].SetActive(true);
                     chooseBox[0].SetActive(false);
@@ -1042,14 +1069,10 @@ public class MainSC : MonoBehaviour
                     storyTX.text = "(나리의 눈길이 잠시 창가를 향했다.)";
                     StoryChoose = false;
                 }
-
                 if (chooseNum == 2)
                 {
-                    int hartminus = Random.Range(50, 70);
-                    PlayerState.Instance().hart -= hartminus;
+                    PlayerState.Instance().hart -= Random.Range(50, 70);
                     PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                    PlayerState.Instance().accumhart -= hartminus;
-                    PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                     charaImg[0].SetActive(false);
                     charaImg[4].SetActive(true);
                     chooseBox[0].SetActive(false);
@@ -1064,11 +1087,8 @@ public class MainSC : MonoBehaviour
             {
                 if (chooseNum == 1)
                 {
-                    int hartminus = Random.Range(5, 15);
-                    PlayerState.Instance().hart -= hartminus;
+                    PlayerState.Instance().hart -= Random.Range(5, 15);
                     PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                    PlayerState.Instance().accumhart -= hartminus;
-                    PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                     charaImg[0].SetActive(false);
                     charaImg[2].SetActive(true);
                     chooseBox[0].SetActive(false);
@@ -1078,7 +1098,6 @@ public class MainSC : MonoBehaviour
                     storyTX.text = "그만하시라고요! \n(나리는 화를 내며 불쾌함을 표현했다.)";
                     StoryChoose = false;
                 }
-
                 if (chooseNum == 2)
                 {
                     charaImg[0].SetActive(false);
@@ -1097,11 +1116,8 @@ public class MainSC : MonoBehaviour
             {
                 if (chooseNum == 1)
                 {
-                    int hartminus = Random.Range(10, 20);
-                    PlayerState.Instance().hart -= hartminus;
+                    PlayerState.Instance().hart -= Random.Range(10, 20);
                     PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                    PlayerState.Instance().accumhart -= hartminus;
-                    PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                     charaImg[0].SetActive(false);
                     charaImg[2].SetActive(true);
                     chooseBox[0].SetActive(false);
@@ -1111,13 +1127,10 @@ public class MainSC : MonoBehaviour
                     storyTX.text = "함부로 얘기한 거 아니에요!";
                     StoryChoose = false;
                 }
-
                 if (chooseNum == 2)
                 {
                     PlayerState.Instance().hart += 10;
                     PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                    PlayerState.Instance().accumhart += 10;
-                    PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                     charaImg[0].SetActive(false);
                     charaImg[5].SetActive(true);
                     chooseBox[0].SetActive(false);
@@ -1127,14 +1140,10 @@ public class MainSC : MonoBehaviour
                     storyTX.text = "……. \n(나리의 기분이 조금 편안해진 것처럼 보인다.)";
                     StoryChoose = false;
                 }
-
                 if (chooseNum == 3)
                 {
-                    int hartminus = Random.Range(20, 40);
-                    PlayerState.Instance().hart -= hartminus;
+                    PlayerState.Instance().hart -= Random.Range(20, 40);
                     PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                    PlayerState.Instance().accumhart -= hartminus;
-                    PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                     charaImg[0].SetActive(false);
                     charaImg[4].SetActive(true);
                     chooseBox[0].SetActive(false);
@@ -1160,13 +1169,10 @@ public class MainSC : MonoBehaviour
                     storyTX.text = "(더는 듣기 싫었는지, 나리는 대화를 거부하고 이불 속에 들어가버렸다.)";
                     StoryChoose = false;
                 }
-
                 if (chooseNum == 2)
                 {
                     PlayerState.Instance().hart += 10;
                     PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                    PlayerState.Instance().accumhart += 10;
-                    PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                     charaImg[1].SetActive(false);
                     charaImg[5].SetActive(true);
                     chooseBox[0].SetActive(false);
@@ -1187,8 +1193,6 @@ public class MainSC : MonoBehaviour
                         PlayerPrefs.SetInt("money", PlayerState.Instance().money);
                         PlayerState.Instance().hart += 80;
                         PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                        PlayerState.Instance().accumhart += 80;
-                        PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                         chooseBox[0].SetActive(false);
                         chooseBox[1].SetActive(false);
                         chooseBox[2].SetActive(false);
@@ -1202,7 +1206,6 @@ public class MainSC : MonoBehaviour
                         systemTX.text = "보유한 돈이 적어서 \n챙겨줄 수가 없습니다.";
                     }
                 }
-
                 if (chooseNum == 2)
                 {
                     charaImg[6].SetActive(false);
@@ -1220,8 +1223,6 @@ public class MainSC : MonoBehaviour
                 {
                     PlayerState.Instance().hart += 10;
                     PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                    PlayerState.Instance().accumhart += 10;
-                    PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                     charaImg[1].SetActive(true);
                     chooseBox[0].SetActive(false);
                     chooseBox[1].SetActive(false);
@@ -1230,7 +1231,6 @@ public class MainSC : MonoBehaviour
                     storyTX.text = "(시간이 조금 흐른 뒤, 가지런히 걸린 교복을 발견한 나리가 미묘한 표정을 지었다.)";
                     StoryChoose = false;
                 }
-
                 if (chooseNum == 2)
                 {
                     chooseBox[0].SetActive(false);
@@ -1250,8 +1250,6 @@ public class MainSC : MonoBehaviour
                 {
                     PlayerState.Instance().hart += 10;
                     PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                    PlayerState.Instance().accumhart += 10;
-                    PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                     charaImg[1].SetActive(false);
                     charaImg[5].SetActive(true);
                     chooseBox[0].SetActive(false);
@@ -1264,11 +1262,8 @@ public class MainSC : MonoBehaviour
 
                 if (chooseNum == 2)
                 {
-                    int hartminus = Random.Range(5, 15);
-                    PlayerState.Instance().hart -= hartminus;
+                    PlayerState.Instance().hart -= Random.Range(5, 15);
                     PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                    PlayerState.Instance().accumhart -= hartminus;
-                    PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                     charaImg[1].SetActive(false);
                     charaImg[0].SetActive(true);
                     chooseBox[0].SetActive(false);
@@ -1279,7 +1274,6 @@ public class MainSC : MonoBehaviour
                     StoryChoose = false;
                 }
             }
-
             if (StoryNum == 4)
             {
                 if (chooseNum == 1)
@@ -1290,8 +1284,6 @@ public class MainSC : MonoBehaviour
                         PlayerPrefs.SetInt("money", PlayerState.Instance().money);
                         PlayerState.Instance().hart += 100;
                         PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                        PlayerState.Instance().accumhart += 100;
-                        PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                         charaImg[1].SetActive(false);
                         charaImg[5].SetActive(true);
                         chooseBox[0].SetActive(false);
@@ -1319,15 +1311,12 @@ public class MainSC : MonoBehaviour
                     StoryChoose = false;
                 }
             }
-
             if (StoryNum == 5)
             {
                 if (chooseNum == 1)
                 {
                     PlayerState.Instance().hart += 10;
                     PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                    PlayerState.Instance().accumhart += 10;
-                    PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                     chooseBox[0].SetActive(false);
                     chooseBox[1].SetActive(false);
                     chooseBox[2].SetActive(false);
@@ -1335,14 +1324,10 @@ public class MainSC : MonoBehaviour
                     storyTX.text = "(이불 속에서 나리가 잠시 움찔거리는 듯한 느낌이 들었다. \n금방 진정한 듯한 나리는 작은 목소리로 고맙다고 말했다.)";
                     StoryChoose = false;
                 }
-
                 if (chooseNum == 2)
                 {
-                    int hartminus = Random.Range(10, 20);
-                    PlayerState.Instance().hart -= hartminus;
+                    PlayerState.Instance().hart -= Random.Range(10, 20);
                     PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                    PlayerState.Instance().accumhart -= hartminus;
-                    PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                     charaImg[2].SetActive(true);
                     chooseBox[0].SetActive(false);
                     chooseBox[1].SetActive(false);
@@ -1351,7 +1336,6 @@ public class MainSC : MonoBehaviour
                     storyTX.text = "……. \n(보이기 싫었던 모습을 들킨 건지, 엉망이 된 얼굴로 노려보았다.)";
                     StoryChoose = false;
                 }
-
                 if (chooseNum == 3)
                 {
                     chooseBox[0].SetActive(false);
@@ -1371,8 +1355,6 @@ public class MainSC : MonoBehaviour
                 {
                     PlayerState.Instance().hart += 10;
                     PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                    PlayerState.Instance().accumhart += 10;
-                    PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                     charaImg[1].SetActive(false);
                     charaImg[5].SetActive(true);
                     chooseBox[0].SetActive(false);
@@ -1393,15 +1375,12 @@ public class MainSC : MonoBehaviour
                     StoryChoose = false;
                 }
             }
-
             if (StoryNum == 3)
             {
                 if (chooseNum == 1)
                 {
                     PlayerState.Instance().hart += 10;
                     PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                    PlayerState.Instance().accumhart += 10;
-                    PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                     charaImg[1].SetActive(false);
                     charaImg[5].SetActive(true);
                     chooseBox[0].SetActive(false);
@@ -1414,11 +1393,8 @@ public class MainSC : MonoBehaviour
 
                 if (chooseNum == 2)
                 {
-                    int hartminus = Random.Range(5, 15);
-                    PlayerState.Instance().hart -= hartminus;
+                    PlayerState.Instance().hart -= Random.Range(5, 15);
                     PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                    PlayerState.Instance().accumhart -= hartminus;
-                    PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                     charaImg[1].SetActive(false);
                     charaImg[0].SetActive(true);
                     chooseBox[0].SetActive(false);
@@ -1431,11 +1407,8 @@ public class MainSC : MonoBehaviour
 
                 if (chooseNum == 3)
                 {
-                    int hartminus = Random.Range(10, 30);
-                    PlayerState.Instance().hart -= hartminus;
+                    PlayerState.Instance().hart -= Random.Range(10, 30);
                     PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                    PlayerState.Instance().accumhart -= hartminus;
-                    PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                     charaImg[1].SetActive(false);
                     charaImg[3].SetActive(true);
                     chooseBox[0].SetActive(false);
@@ -1446,16 +1419,12 @@ public class MainSC : MonoBehaviour
                     StoryChoose = false;
                 }
             }
-
             if (StoryNum == 4)
             {
                 if (chooseNum == 1)
                 {
-                    int hartminus = Random.Range(5, 15);
-                    PlayerState.Instance().hart -= hartminus;
+                    PlayerState.Instance().hart -= Random.Range(5, 15);
                     PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                    PlayerState.Instance().accumhart -= hartminus;
-                    PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                     charaImg[1].SetActive(false);
                     charaImg[3].SetActive(true);
                     chooseBox[0].SetActive(false);
@@ -1470,8 +1439,6 @@ public class MainSC : MonoBehaviour
                 {
                     PlayerState.Instance().hart += 10;
                     PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                    PlayerState.Instance().accumhart += 10;
-                    PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                     chooseBox[0].SetActive(false);
                     chooseBox[1].SetActive(false);
                     chooseBox[2].SetActive(false);
@@ -1480,15 +1447,12 @@ public class MainSC : MonoBehaviour
                     StoryChoose = false;
                 }
             }
-
             if (StoryNum == 5)
             {
                 if (chooseNum == 1)
                 {
                     PlayerState.Instance().hart += 10;
                     PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                    PlayerState.Instance().accumhart += 10;
-                    PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                     charaImg[1].SetActive(false);
                     charaImg[5].SetActive(true);
                     chooseBox[0].SetActive(false);
@@ -1501,11 +1465,8 @@ public class MainSC : MonoBehaviour
 
                 if (chooseNum == 2)
                 {
-                    int hartminus = Random.Range(20, 40);
-                    PlayerState.Instance().hart -= hartminus;
+                    PlayerState.Instance().hart -= Random.Range(20, 40);
                     PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                    PlayerState.Instance().accumhart -= hartminus;
-                    PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                     charaImg[1].SetActive(false);
                     charaImg[4].SetActive(true);
                     chooseBox[0].SetActive(false);
@@ -1516,15 +1477,12 @@ public class MainSC : MonoBehaviour
                     StoryChoose = false;
                 }
             }
-
             if (StoryNum == 6)
             {
                 if (chooseNum == 1)
                 {
                     PlayerState.Instance().hart += 40;
                     PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                    PlayerState.Instance().accumhart += 40;
-                    PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                     chooseBox[0].SetActive(false);
                     chooseBox[1].SetActive(false);
                     chooseBox[2].SetActive(false);
@@ -1535,11 +1493,8 @@ public class MainSC : MonoBehaviour
 
                 if (chooseNum == 2)
                 {
-                    int hartminus = Random.Range(20, 40);
-                    PlayerState.Instance().hart -= hartminus;
+                    PlayerState.Instance().hart -= Random.Range(20, 40);
                     PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                    PlayerState.Instance().accumhart -= hartminus;
-                    PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                     chooseBox[0].SetActive(false);
                     chooseBox[1].SetActive(false);
                     chooseBox[2].SetActive(false);
@@ -1548,15 +1503,12 @@ public class MainSC : MonoBehaviour
                     StoryChoose = false;
                 }
             }
-
             if (StoryNum == 7)
             {
                 if (chooseNum == 1)
                 {
                     PlayerState.Instance().hart += 10;
                     PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                    PlayerState.Instance().accumhart += 10;
-                    PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                     chooseBox[0].SetActive(false);
                     chooseBox[1].SetActive(false);
                     chooseBox[2].SetActive(false);
@@ -1567,11 +1519,8 @@ public class MainSC : MonoBehaviour
 
                 if (chooseNum == 2)
                 {
-                    int hartminus = Random.Range(20, 40);
-                    PlayerState.Instance().hart -= hartminus;
+                    PlayerState.Instance().hart -= Random.Range(20, 40);
                     PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                    PlayerState.Instance().accumhart -= hartminus;
-                    PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                     charaImg[4].SetActive(false);
                     charaImg[2].SetActive(true);
                     chooseBox[0].SetActive(false);
@@ -1595,8 +1544,6 @@ public class MainSC : MonoBehaviour
                         PlayerPrefs.SetInt("money", PlayerState.Instance().money);
                         PlayerState.Instance().hart += 60;
                         PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                        PlayerState.Instance().accumhart += 60;
-                        PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                         chooseBox[0].SetActive(false);
                         chooseBox[1].SetActive(false);
                         chooseBox[2].SetActive(false);
@@ -1623,7 +1570,6 @@ public class MainSC : MonoBehaviour
                     StoryChoose = false;
                 }
             }
-
             if (StoryNum == 4)
             {
                 if (chooseNum == 1)
@@ -1634,8 +1580,6 @@ public class MainSC : MonoBehaviour
                         PlayerPrefs.SetInt("money", PlayerState.Instance().money);
                         PlayerState.Instance().hart += 120;
                         PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                        PlayerState.Instance().accumhart += 120;
-                        PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                         charaImg[1].SetActive(false);
                         charaImg[5].SetActive(true);
                         chooseBox[0].SetActive(false);
@@ -1662,15 +1606,12 @@ public class MainSC : MonoBehaviour
                     StoryChoose = false;
                 }
             }
-
             if (StoryNum == 5)
             {
                 if (chooseNum == 1)
                 {
                     PlayerState.Instance().hart += 50;
                     PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                    PlayerState.Instance().accumhart += 50;
-                    PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                     charaImg[1].SetActive(false);
                     charaImg[5].SetActive(true);
                     chooseBox[0].SetActive(false);
@@ -1685,8 +1626,6 @@ public class MainSC : MonoBehaviour
                 {
                     PlayerState.Instance().hart += 30;
                     PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                    PlayerState.Instance().accumhart += 30;
-                    PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                     charaImg[1].SetActive(false);
                     charaImg[5].SetActive(true);
                     chooseBox[0].SetActive(false);
@@ -1697,15 +1636,12 @@ public class MainSC : MonoBehaviour
                     StoryChoose = false;
                 }
             }
-
             if (StoryNum == 6)
             {
                 if (chooseNum == 1)
                 {
                     PlayerState.Instance().hart += 10;
                     PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                    PlayerState.Instance().accumhart += 10;
-                    PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                     charaImg[1].SetActive(false);
                     charaImg[6].SetActive(true);
                     chooseBox[0].SetActive(false);
@@ -1728,15 +1664,12 @@ public class MainSC : MonoBehaviour
                     StoryChoose = false;
                 }
             }
-
             if (StoryNum == 7)
             {
                 if (chooseNum == 1)
                 {
                     PlayerState.Instance().hart += 10;
                     PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                    PlayerState.Instance().accumhart += 10;
-                    PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                     charaImg[1].SetActive(false);
                     charaImg[5].SetActive(true);
                     chooseBox[0].SetActive(false);
@@ -1763,8 +1696,6 @@ public class MainSC : MonoBehaviour
                 {
                     PlayerState.Instance().hart += 20;
                     PlayerPrefs.SetFloat("hart", PlayerState.Instance().hart);
-                    PlayerState.Instance().accumhart += 20;
-                    PlayerPrefs.SetFloat("accumhart", PlayerState.Instance().accumhart);
                     charaImg[1].SetActive(false);
                     charaImg[5].SetActive(true);
                     chooseBox[0].SetActive(false);
@@ -1793,7 +1724,7 @@ public class MainSC : MonoBehaviour
         {
             case ShowResult.Finished:
                 Debug.Log("The ad was successfully shown.");
-                PlayerState.Instance().money += 500;
+                PlayerState.Instance().money += 1000;
                 PlayerPrefs.SetInt("money", PlayerState.Instance().money);
                 adsReady = false;
                 break;

@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class IntroSC : MonoBehaviour
 {
+    public int LastSceneNum;
     public GameObject main;
     public GameObject naming;
     public GameObject warning;
@@ -12,6 +13,11 @@ public class IntroSC : MonoBehaviour
     public GameObject exit;
     public UIInput NamingInput;
     public GameObject ClickSound;
+
+    void Start()
+    {
+        LastSceneNum = PlayerPrefs.GetInt("LastSceneNum", 0);
+    }
 
     public void GameStart()
     {
@@ -68,7 +74,7 @@ public class IntroSC : MonoBehaviour
         main.SetActive(false);
         if (PlayerPrefs.HasKey("UserName"))
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(LastSceneNum);
         }
         else
         {

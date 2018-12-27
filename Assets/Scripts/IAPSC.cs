@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Purchasing;
-using UnityEngine.Purchasing.Security;
-using UnityEngine.Analytics;
-using System;
 
 public class IAPSC : MonoBehaviour, IStoreListener
 {
@@ -17,8 +14,8 @@ public class IAPSC : MonoBehaviour, IStoreListener
     public static string money10000 = "money_10000"; // 소비 상품
     public static string money50000 = "money_50000"; // 소비 상품
 
-    public static string kProductIDNonConsumable = "nonconsumable"; // 소비되지 않는 상품
-    public static string kProductIDSubscription = "subscription"; // 구독 상품
+    //public static string kProductIDNonConsumable = "nonconsumable"; // 소비되지 않는 상품
+    //public static string kProductIDSubscription = "subscription"; // 구독 상품
 
     // 애플 앱스토어 프로덕트 아이덴티파이어
     //private static string kProductNameAppleSubscription = "com.unity3d.subscription.new";
@@ -38,7 +35,6 @@ public class IAPSC : MonoBehaviour, IStoreListener
     {
         if (IsInitialized())
         {
-            // ... we are done here.
             return;
         }
         var builder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
@@ -48,11 +44,11 @@ public class IAPSC : MonoBehaviour, IStoreListener
         builder.AddProduct(money10000, ProductType.Consumable);
         builder.AddProduct(money50000, ProductType.Consumable);
         // Continue adding the non-consumable product.
-        builder.AddProduct(kProductIDNonConsumable, ProductType.NonConsumable);
-        builder.AddProduct(kProductIDSubscription, ProductType.Subscription, new IDs(){
-                //{ kProductNameAppleSubscription, AppleAppStore.Name },
-                { kProductNameGooglePlaySubscription, GooglePlay.Name }
-            });
+        //builder.AddProduct(kProductIDNonConsumable, ProductType.NonConsumable);
+        //builder.AddProduct(kProductIDSubscription, ProductType.Subscription, new IDs(){
+        //        //{ kProductNameAppleSubscription, AppleAppStore.Name },
+        //        { kProductNameGooglePlaySubscription, GooglePlay.Name }
+        //    });
         UnityPurchasing.Initialize(this, builder);
     }
 
@@ -63,6 +59,9 @@ public class IAPSC : MonoBehaviour, IStoreListener
 
     public void BuyProductID(string productId)
     {
+        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
+        SoundSC.Instance().Sound.Play();
+
         if (IsInitialized())
         {
             Product product = m_StoreController.products.WithID(productId);
@@ -83,42 +82,32 @@ public class IAPSC : MonoBehaviour, IStoreListener
         }
     }
 
-    // Restore purchases previously made by this customer. Some platforms automatically restore purchases, like Google. 
-    // Apple currently requires explicit purchase restoration for IAP, conditionally displaying a password prompt.
-    public void RestorePurchases()
-    {
-        // If Purchasing has not yet been set up ...
-        if (!IsInitialized())
-        {
-            // ... report the situation and stop restoring. Consider either waiting longer, or retrying initialization.
-            Debug.Log("RestorePurchases FAIL. Not initialized.");
-            return;
-        }
+    //// Restore purchases previously made by this customer. Some platforms automatically restore purchases, like Google. 
+    //// Apple currently requires explicit purchase restoration for IAP, conditionally displaying a password prompt.
+    //public void RestorePurchases()
+    //{
+    //    if (!IsInitialized())
+    //    {
+    //        Debug.Log("RestorePurchases FAIL. Not initialized.");
+    //        return;
+    //    }
 
-        // If we are running on an Apple device ... 
-        if (Application.platform == RuntimePlatform.IPhonePlayer ||
-            Application.platform == RuntimePlatform.OSXPlayer)
-        {
-            // ... begin restoring purchases
-            Debug.Log("RestorePurchases started ...");
+    //    if (Application.platform == RuntimePlatform.IPhonePlayer ||
+    //        Application.platform == RuntimePlatform.OSXPlayer)
+    //    {
+    //        Debug.Log("RestorePurchases started ...");
 
-            // Fetch the Apple store-specific subsystem.
-            var apple = m_StoreExtensionProvider.GetExtension<IAppleExtensions>();
-            // Begin the asynchronous process of restoring purchases. Expect a confirmation response in 
-            // the Action<bool> below, and ProcessPurchase if there are previously purchased products to restore.
-            apple.RestoreTransactions((result) => {
-                // The first phase of restoration. If no more responses are received on ProcessPurchase then 
-                // no purchases are available to be restored.
-                Debug.Log("RestorePurchases continuing: " + result + ". If no further messages, no purchases available to restore.");
-            });
-        }
-        // Otherwise ...
-        else
-        {
-            // We are not running on an Apple device. No work is necessary to restore purchases.
-            Debug.Log("RestorePurchases FAIL. Not supported on this platform. Current = " + Application.platform);
-        }
-    }
+    //        // Fetch the Apple store-specific subsystem.
+    //        var apple = m_StoreExtensionProvider.GetExtension<IAppleExtensions>();
+    //        apple.RestoreTransactions((result) => {
+    //            Debug.Log("RestorePurchases continuing: " + result + ". If no further messages, no purchases available to restore.");
+    //        });
+    //    }
+    //    else
+    //    {
+    //        Debug.Log("RestorePurchases FAIL. Not supported on this platform. Current = " + Application.platform);
+    //    }
+    //}
 
     public void OnInitialized(IStoreController controller, IExtensionProvider extensions)
     {
@@ -159,7 +148,7 @@ public class IAPSC : MonoBehaviour, IStoreListener
                 PlayerPrefs.SetInt("money", PlayerState.Instance().money);
                 break;
         }
-       
+
         return PurchaseProcessingResult.Complete;
     }
 

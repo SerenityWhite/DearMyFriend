@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class HappyEnding : MonoBehaviour
 {
     public GameObject textBox;
+    public GameObject textwall;
     public TypewriterEffect storyEF;
     public UILabel nameTX;
     public UILabel storyTX;
@@ -34,6 +35,7 @@ public class HappyEnding : MonoBehaviour
     {
         storyEF.Finish();
         storyFinish = true;
+        textwall.SetActive(true);
     }
     public void NextStory()
     {
@@ -55,12 +57,14 @@ public class HappyEnding : MonoBehaviour
             }
         }
     }
+    public void TextWallClick()
+    {
+        NextStory();
+        textwall.SetActive(false);
+    }
 
     void Story()
     {
-        SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
-        SoundSC.Instance().Sound.Play();
-
         if (StartEnd == 0)
         {
             if (StoryNum == 0)

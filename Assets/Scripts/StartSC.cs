@@ -10,6 +10,7 @@ public class StartSC : MonoBehaviour
     public TweenAlpha doorAlpha;
 
     public GameObject textBox;
+    public GameObject textwall;
     public TweenAlpha textBoxAlpha;
     public TypewriterEffect storyEF;
     public UILabel nameTX;
@@ -44,14 +45,16 @@ public class StartSC : MonoBehaviour
     {
         storyEF.Finish();
         storyFinish = true;
+        if(StoryChoose == true)
+            textwall.SetActive(false);
+        if(StoryChoose == false)
+            textwall.SetActive(true);
     }
 
     public void NextStory()
     {
         if(storyFinish == true && StoryChoose == false)
         {
-            SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
-            SoundSC.Instance().Sound.Play();
             StoryNum += 1;
             storyFinish = false;
             Story();
@@ -62,6 +65,12 @@ public class StartSC : MonoBehaviour
         {
             storyFinish = false;
         }
+    }
+
+    public void TextWallClick()
+    {
+        NextStory();
+        textwall.SetActive(false);
     }
 
     void Story()
@@ -81,7 +90,7 @@ public class StartSC : MonoBehaviour
         if (StoryNum == 2)
         {
             nameTX.text = "선배 교사";
-            storyTX.text = "지금 행정 관련 서류를 처리하느라 바빠서 그런데, 대신 출석부 체크 좀 해주세요.";
+            storyTX.text = "지금 행정 관련 서류를 처리하느라 바빠서 그런데, \n대신 출석부 체크 좀 해주세요.";
         }
 
         if (StoryNum == 3)
@@ -111,13 +120,13 @@ public class StartSC : MonoBehaviour
             textBox.SetActive(true);
             textBoxAlpha.PlayForward();
             nameTX.text = PlayerPrefs.GetString("UserName");
-            storyTX.text = "(등교 거부… 학부모님의 이야기를 들어보니, 방 안에서만 지낸지 제법 오랜 시간이 흘렀다는 것 같다.)";
+            storyTX.text = "(등교 거부… \n학부모님의 이야기를 들어보니, 방 안에서만 지낸지 제법 오랜 시간이 흘렀다는 것 같다.)";
         }
 
         if (StoryNum == 7)
         {
             nameTX.text = PlayerPrefs.GetString("UserName");
-            storyTX.text = "……. (조금 긴장되네. 조심스럽게 문을 두드려 보자.)";
+            storyTX.text = "……. \n(조금 긴장되네. 조심스럽게 문을 두드려 보자.)";
         }
 
         if (StoryNum == 8)
@@ -125,13 +134,13 @@ public class StartSC : MonoBehaviour
             SoundSC.Instance().Sound.clip = SoundSC.Instance().Door1;
             SoundSC.Instance().Sound.Play();
             nameTX.text = PlayerPrefs.GetString("UserName");
-            storyTX.text = "나리야, 안녕? 학교 부담임선생님이야. 잠깐만 대화할 수 있을까?";
+            storyTX.text = "나리야, 안녕? 학교 부담임선생님이야. \n잠깐만 대화할 수 있을까?";
         }
 
         if (StoryNum == 9)
         {
             nameTX.text = PlayerPrefs.GetString("UserName");
-            storyTX.text = "……. (반응이 없다. 어떻게 하면 좋을까?)";
+            storyTX.text = "……. \n(반응이 없다. 어떻게 하면 좋을까?)";
             StoryChoose = true;
             chooseBox[0].SetActive(true);
             chooseTX[0].text = "다음에 다시 온다";
@@ -164,7 +173,7 @@ public class StartSC : MonoBehaviour
         if (StoryNum == 12)
         {
             nameTX.text = PlayerPrefs.GetString("UserName");
-            storyTX.text = "……. (역시나 반응이 없다.)";
+            storyTX.text = "……. \n(역시나 반응이 없다.)";
         }
 
         if (StoryNum == 13)
@@ -194,7 +203,7 @@ public class StartSC : MonoBehaviour
         if (StoryNum == 17)
         {
             nameTX.text = PlayerPrefs.GetString("UserName");
-            storyTX.text = "(처음 연락했을때, 이제는 지긋지긋하다는 듯한 학부모님의 태도가 떠올랐다. \n나름대로 노력해보셨겠지만… 병원 치료도 이 아이의 마음을 열기엔 부족했던 거겠지.)";
+            storyTX.text = "(처음 연락했을때, 이제는 힘들다는 듯한 학부모님의 태도가 떠올랐다. \n나름대로 노력해보셨겠지만… 병원 치료도 이 아이의 마음을 열기엔 부족했던 거겠지.)";
         }
 
         if (StoryNum == 18)
@@ -206,7 +215,7 @@ public class StartSC : MonoBehaviour
         if (StoryNum == 19)
         {
             nameTX.text = PlayerPrefs.GetString("UserName");
-            storyTX.text = "(그래, 포기하지 말자.) 나리야, 내일 다시 올게. 우리 또 만나자!";
+            storyTX.text = "(그래, 포기하지 말자.) \n나리야, 내일 다시 올게. 우리 또 만나자!";
         }
 
         if (StoryNum == 20)
@@ -243,10 +252,12 @@ public class StartSC : MonoBehaviour
             PlayerPrefs.SetInt("day", PlayerState.Instance().day);
             PlayerState.Instance().money = 10000;
             PlayerPrefs.SetInt("money", PlayerState.Instance().money);
-            PlayerState.Instance().talkChance = 3;
+            PlayerState.Instance().talkChance = 5;
             PlayerPrefs.SetInt("talkChance", PlayerState.Instance().talkChance);
             PlayerState.Instance().tutorialBool = 1;
             PlayerPrefs.SetInt("tutorialBool", PlayerState.Instance().tutorialBool);
+            PlayerState.Instance().tutorialBool02 = 1;
+            PlayerPrefs.SetInt("tutorialBool02", PlayerState.Instance().tutorialBool02);
             SceneManager.LoadScene(2);
         }
     }
@@ -287,7 +298,6 @@ public class StartSC : MonoBehaviour
         ChooseStory();
         storyEF.ResetToBeginning();
     }
-
     public void StoryChooseClick2()
     {
         SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
@@ -296,7 +306,6 @@ public class StartSC : MonoBehaviour
         ChooseStory();
         storyEF.ResetToBeginning();
     }
-
     public void StoryChooseClick3()
     {
         SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
@@ -312,7 +321,6 @@ public class StartSC : MonoBehaviour
         SoundSC.Instance().Sound.Play();
         Exit.SetActive(false);
     }
-
     public void ExitYes()
     {
         SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;

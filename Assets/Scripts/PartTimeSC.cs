@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PartTimeSC : MonoBehaviour
 {
+    public int LastSceneNum;
+
     public GameObject exit;
     public GameObject option;
 
@@ -116,6 +118,9 @@ public class PartTimeSC : MonoBehaviour
         TimeSelec.SetActive(false);
         Timer.SetActive(true);
 
+        LastSceneNum = 4;
+        PlayerPrefs.SetInt("LastSceneNum", LastSceneNum);
+
         partTime = 1;
         PlayerPrefs.SetInt("partTime", partTime);
 
@@ -148,6 +153,9 @@ public class PartTimeSC : MonoBehaviour
             sceneBack.SetActive(true);
             TimeSelec.SetActive(true);
             Timer.SetActive(false);
+
+            LastSceneNum = 2;
+            PlayerPrefs.SetInt("LastSceneNum", LastSceneNum);
 
             Massage.SetActive(true);
             MassageTX.text = "급여를 받았습니다.";

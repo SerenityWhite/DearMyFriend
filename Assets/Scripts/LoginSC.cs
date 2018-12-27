@@ -12,10 +12,18 @@ public class LoginSC : MonoBehaviour
         PlayGamesClientConfiguration config = new PlayGamesClientConfiguration();
         PlayGamesPlatform.InitializeInstance(config);
         PlayGamesPlatform.Activate();
-	}
-	
-	void Update ()
-    {
-		
-	}
+
+        Social.localUser.Authenticate((bool success) => {
+            if (success)
+            {
+                string userName = Social.localUser.userName;
+                string userID = Social.localUser.id;
+                Debug.Log("Login Success");
+            }
+            else
+            {
+                Debug.Log("Login Fail");
+            }
+        });
+    }
 }
