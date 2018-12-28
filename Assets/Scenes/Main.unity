@@ -9606,10 +9606,8 @@ MonoBehaviour:
   pixelSnap: 0
   onClick:
   - mTarget: {fileID: 2064231498}
-    mMethodName: BuyProductID
-    mParameters:
-    - obj: {fileID: 1364549033}
-      field: name
+    mMethodName: BuyConsumable04
+    mParameters: []
     oneShot: 0
 --- !u!1 &795065870
 GameObject:
@@ -12671,10 +12669,8 @@ MonoBehaviour:
   pixelSnap: 0
   onClick:
   - mTarget: {fileID: 2064231498}
-    mMethodName: BuyProductID
-    mParameters:
-    - obj: {fileID: 362794528}
-      field: name
+    mMethodName: BuyConsumable03
+    mParameters: []
     oneShot: 0
 --- !u!1 &1126945165
 GameObject:
@@ -15531,10 +15527,8 @@ MonoBehaviour:
   pixelSnap: 0
   onClick:
   - mTarget: {fileID: 2064231498}
-    mMethodName: BuyProductID
-    mParameters:
-    - obj: {fileID: 630399069}
-      field: name
+    mMethodName: BuyConsumable05
+    mParameters: []
     oneShot: 0
 --- !u!114 &1273730819
 MonoBehaviour:
@@ -18941,10 +18935,8 @@ MonoBehaviour:
   pixelSnap: 0
   onClick:
   - mTarget: {fileID: 2064231498}
-    mMethodName: BuyProductID
-    mParameters:
-    - obj: {fileID: 1674518350}
-      field: name
+    mMethodName: BuyConsumable01
+    mParameters: []
     oneShot: 0
 --- !u!1 &1569922786
 GameObject:
@@ -24806,7 +24798,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2064231495}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00d69466065f34844aad52634b1f02f9, type: 3}
+  m_Script: {fileID: 11500000, guid: 764d26f92e7c43a48b25f4b1944b23d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2064874566
@@ -25029,10 +25021,8 @@ MonoBehaviour:
   pixelSnap: 0
   onClick:
   - mTarget: {fileID: 2064231498}
-    mMethodName: BuyProductID
-    mParameters:
-    - obj: {fileID: 1141789610}
-      field: name
+    mMethodName: BuyConsumable02
+    mParameters: []
     oneShot: 0
 --- !u!1 &2074210478
 GameObject:
