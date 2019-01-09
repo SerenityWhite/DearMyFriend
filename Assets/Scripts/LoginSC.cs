@@ -9,7 +9,10 @@ public class LoginSC : MonoBehaviour
 {
 	void Start ()
     {
-        PlayGamesClientConfiguration config = new PlayGamesClientConfiguration();
+        PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder()
+        .EnableSavedGames() // 게임 저장기능
+        .Build(); // 초기화 클래스 빌드 함수 호출
+
         PlayGamesPlatform.InitializeInstance(config);
         PlayGamesPlatform.Activate();
 

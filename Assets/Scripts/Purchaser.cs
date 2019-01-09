@@ -10,12 +10,12 @@ namespace CompleteProject
         private static IStoreController m_StoreController;
         private static IExtensionProvider m_StoreExtensionProvider;
 
-        public static string money1000 = "money_1000"; // 소비 상품
-        public static string money3000 = "money_3000"; // 소비 상품
-        public static string money5000 = "money_5000"; // 소비 상품
-        public static string money10000 = "money_10000"; // 소비 상품
-        public static string money50000 = "money_50000"; // 소비 상품
-        private static string kProductNameGooglePlaySubscription = "com.unity3d.subscription.original";
+        public static string money_1000 = "money_1000"; // 소비 상품
+        public static string money_3000 = "money_3000"; // 소비 상품
+        public static string money_5000 = "money_5000"; // 소비 상품
+        public static string money_10000 = "money_10000"; // 소비 상품
+        public static string money_50000 = "money_50000"; // 소비 상품
+        private static string kProductNameGooglePlaySubscription = "com.SerenityWhite.DearMyFriend";
 
         void Start()
         {
@@ -37,11 +37,11 @@ namespace CompleteProject
 
             // Add a product to sell / restore by way of its identifier, associating the general identifier
             // with its store-specific identifiers.
-            builder.AddProduct(money1000, ProductType.Consumable);
-            builder.AddProduct(money3000, ProductType.Consumable);
-            builder.AddProduct(money5000, ProductType.Consumable);
-            builder.AddProduct(money10000, ProductType.Consumable);
-            builder.AddProduct(money50000, ProductType.Consumable);
+            builder.AddProduct(money_1000, ProductType.Consumable);
+            builder.AddProduct(money_3000, ProductType.Consumable);
+            builder.AddProduct(money_5000, ProductType.Consumable);
+            builder.AddProduct(money_10000, ProductType.Consumable);
+            builder.AddProduct(money_50000, ProductType.Consumable);
             UnityPurchasing.Initialize(this, builder);
         }
 
@@ -54,36 +54,36 @@ namespace CompleteProject
         {
             SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
             SoundSC.Instance().Sound.Play();
-            Debug.Log("BuyConsumalbe01!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-            BuyProductID(money1000);
+
+            BuyProductID(money_1000);
         }
         public void BuyConsumable02()
         {
             SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
             SoundSC.Instance().Sound.Play();
 
-            BuyProductID(money3000);
+            BuyProductID(money_3000);
         }
         public void BuyConsumable03()
         {
             SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
             SoundSC.Instance().Sound.Play();
 
-            BuyProductID(money5000);
+            BuyProductID(money_5000);
         }
         public void BuyConsumable04()
         {
             SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
             SoundSC.Instance().Sound.Play();
 
-            BuyProductID(money10000);
+            BuyProductID(money_10000);
         }
         public void BuyConsumable05()
         {
             SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
             SoundSC.Instance().Sound.Play();
 
-            BuyProductID(money50000);
+            BuyProductID(money_50000);
         }
 
         void BuyProductID(string productId)
@@ -122,36 +122,36 @@ namespace CompleteProject
 
         public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs args)
         {
-            if (String.Equals(args.purchasedProduct.definition.id, money1000, StringComparison.Ordinal))
+            if (String.Equals(args.purchasedProduct.definition.id, money_1000, StringComparison.Ordinal))
             {
                 Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", args.purchasedProduct.definition.id));
                 PlayerState.Instance().money += 1000;
                 PlayerPrefs.SetInt("money", PlayerState.Instance().money);
             }
-            //else if (String.Equals(args.purchasedProduct.definition.id, money3000, StringComparison.Ordinal))
-            //{
-            //    Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", args.purchasedProduct.definition.id));
-            //    PlayerState.Instance().money += 3000;
-            //    PlayerPrefs.SetInt("money", PlayerState.Instance().money);
-            //}
-            //else if (String.Equals(args.purchasedProduct.definition.id, money5000, StringComparison.Ordinal))
-            //{
-            //    Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", args.purchasedProduct.definition.id));
-            //    PlayerState.Instance().money += 5000;
-            //    PlayerPrefs.SetInt("money", PlayerState.Instance().money);
-            //}
-            //else if (String.Equals(args.purchasedProduct.definition.id, money10000, StringComparison.Ordinal))
-            //{
-            //    Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", args.purchasedProduct.definition.id));
-            //    PlayerState.Instance().money += 10000;
-            //    PlayerPrefs.SetInt("money", PlayerState.Instance().money);
-            //}
-            //else if (String.Equals(args.purchasedProduct.definition.id, money50000, StringComparison.Ordinal))
-            //{
-            //    Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", args.purchasedProduct.definition.id));
-            //    PlayerState.Instance().money += 50000;
-            //    PlayerPrefs.SetInt("money", PlayerState.Instance().money);
-            //}
+            else if (String.Equals(args.purchasedProduct.definition.id, money_3000, StringComparison.Ordinal))
+            {
+                Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", args.purchasedProduct.definition.id));
+                PlayerState.Instance().money += 3000;
+                PlayerPrefs.SetInt("money", PlayerState.Instance().money);
+            }
+            else if (String.Equals(args.purchasedProduct.definition.id, money_5000, StringComparison.Ordinal))
+            {
+                Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", args.purchasedProduct.definition.id));
+                PlayerState.Instance().money += 5000;
+                PlayerPrefs.SetInt("money", PlayerState.Instance().money);
+            }
+            else if (String.Equals(args.purchasedProduct.definition.id, money_10000, StringComparison.Ordinal))
+            {
+                Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", args.purchasedProduct.definition.id));
+                PlayerState.Instance().money += 10000;
+                PlayerPrefs.SetInt("money", PlayerState.Instance().money);
+            }
+            else if (String.Equals(args.purchasedProduct.definition.id, money_50000, StringComparison.Ordinal))
+            {
+                Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", args.purchasedProduct.definition.id));
+                PlayerState.Instance().money += 50000;
+                PlayerPrefs.SetInt("money", PlayerState.Instance().money);
+            }
             else
             {
                 Debug.Log(string.Format("ProcessPurchase: FAIL. Unrecognized product: '{0}'", args.purchasedProduct.definition.id));

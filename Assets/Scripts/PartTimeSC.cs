@@ -144,7 +144,6 @@ namespace Assets.SimpleAndroidNotifications
             if (partTimeNum == 8)
                 NotificationManager.SendWithAppIcon(TimeSpan.FromSeconds(3600 * 8), "아르바이트 완료!", "8시간 아르바이트가 끝났어요~ 이제 급여를 받아볼까요?", new Color(1, 0.96f, 0.4f), NotificationIcon.Bell);
         }
-
         public void SystemMassageNo()
         {
             SoundSC.Instance().Sound.clip = SoundSC.Instance().ButtonClick;
